@@ -26,7 +26,6 @@ Zorg dat je in de hoofdmap "GoodGarden" zit. Kijk in je path: "../GoodGarden". A
      pip install mysql-connector-python
      pip install requests
      pip install flask-cors
-     pip install Flask-SQLAlchemy
 
 ## Gebruik
 
@@ -42,7 +41,7 @@ Zorg dat je in de hoofdmap "GoodGarden" zit. Kijk in je path: "../GoodGarden". A
 
 ## Versiebeheer
 
-We gebruiken [Github](https://github.com) voor versiebeheer. Voor de beschikbare versies, zie de [GoodGarden](https://github.com/6028570/GoodGarden).
+We gebruiken [Github](https://github.com) voor versiebeheer. Voor de beschikbare versies, zie de [GoodGarden](https://github.com/Znooptokkie/GoodGarden).
 
 De branch "oomen" is up to date. Het mergen ging niet helemaal goed dus we hebben het niet met  "main" gemerged.
 

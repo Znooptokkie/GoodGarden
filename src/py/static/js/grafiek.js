@@ -34,7 +34,7 @@ class LineChart
      * @param {Array<number>} data - Data points for the chart, one per x-label.
      * @param {Array<number|string>} [yLabels=["", 10, 15, 20, 25, 30, 35, 40]] - Labels for the y-axis.
      */
-    drawChart(xLabels, data, yLabels = ["", 10, 15, 20, 25, 30, 35, 40]) 
+    drawChart(xLabels, data, yLabels = [0, 5, 10, 15, 20, 25, 30, 35, 40]) 
     {
         if (!this.canvas) 
         {
@@ -44,72 +44,116 @@ class LineChart
         this.clearCanvas();
         const graphWidth = this.canvas.width - this.padding * 2;
         const graphHeight = this.canvas.height - this.padding * 2;
-
+        const maxValue = Math.max(...yLabels);
+        const graphScale = graphHeight / maxValue;
+        
         // Draw the axes
-        this.ctx.strokeStyle = "rgb(143, 188, 143)";
+        this.ctx.strokeStyle = "rgb(46, 86, 81)";
         this.ctx.beginPath();
         this.ctx.moveTo(this.padding, this.padding);
         this.ctx.lineTo(this.padding, this.canvas.height - this.padding);
         this.ctx.lineTo(this.canvas.width - this.padding, this.canvas.height - this.padding);
         this.ctx.stroke();
-
+        
         // Calculate increments for plotting points
         const xIncrement = graphWidth / (xLabels.length - 1);
-        const yIncrement = graphHeight / (yLabels.length - 1);
         
-        // Plot the data points
+        // Plot the data points and draw the line
+        this.ctx.strokeStyle = "rgb(191, 215, 182)";
         this.ctx.beginPath();
-        this.ctx.moveTo(this.padding, this.canvas.height - this.padding - (data[0] / 100) * graphHeight);
+        let xPos = this.padding;
+        let yPos = this.canvas.height - this.padding - (data[0] * graphScale);
+        this.ctx.moveTo(xPos, yPos);
+        
         for (let i = 1; i < data.length; i++) 
         {
-            const xPos = this.padding + i * xIncrement;
-            const yPos = this.canvas.height - this.padding - (data[i] / 100) * graphHeight;
+            xPos = this.padding + i * xIncrement;
+            yPos = this.canvas.height - this.padding - (data[i] * graphScale);
             this.ctx.lineTo(xPos, yPos);
         }
         this.ctx.stroke();
         
-        // Draw y-axis labels
-        this.ctx.fillStyle = "black";
-        this.ctx.textAlign = "right";
-        this.ctx.textBaseline = "middle";
-        yLabels.forEach((label, i) => 
+        // Draw points on the line and temperature labels
+        this.ctx.fillStyle = "rgb(46, 86, 81)";
+        for (let i = 0; i < data.length; i++) 
         {
-            if (label !== "") 
-            {
-                const yPos = this.canvas.height - this.padding - i * yIncrement;
-                this.ctx.fillText(label, this.padding - 10, yPos);
-            }
-        });
-
+            xPos = this.padding + i * xIncrement;
+            yPos = this.canvas.height - this.padding - (data[i] * graphScale);
+        
+            // Draw point for each data entry
+            this.ctx.beginPath();
+            this.ctx.arc(xPos, yPos, 3, 0, Math.PI * 2);
+            this.ctx.fill();
+        
+            // Draw temperature values beside each point 
+            this.ctx.fillStyle = "rgb(46, 86, 81)";
+            this.ctx.fillText(data[i] + "°C", xPos + 10, yPos - 10);
+        }
+        
+        // Draw y-axis labels
+        this.ctx.textAlign = "right";
+        this.ctx.textBaseline = "middle"; // Center the text vertically
+        for (let i = 0; i < yLabels.length; i++) 
+        {
+            const label = yLabels[i];
+            // Calculate the y position for the label
+            yPos = this.canvas.height - this.padding - (label * graphScale);
+            this.ctx.fillText(label, this.padding - 10, yPos);
+        }
+        
         // Draw x-axis labels
         this.ctx.textAlign = "center";
-        xLabels.forEach((label, i) => 
+        this.ctx.textBaseline = "alphabetic"; // Default vertical alignment for text
+        for (let i = 0; i < xLabels.length; i++) 
         {
-            if (label !== "") 
+            xPos = this.padding + i * xIncrement;
+            if (xLabels[i] !== "") 
             {
-                const xPos = this.padding + i * xIncrement;
-                this.ctx.fillText(label, xPos, this.canvas.height - this.padding + 20);
+                this.ctx.fillText(xLabels[i], xPos, this.canvas.height - this.padding + 20);
             }
-        });
+        }
     }
-}
-
+    
+}    
 /**
  * Fetches weather data from an API and draws a line chart with the fetched data.
  * @param {LineChart} chart - The LineChart instance to draw on.
  * @param {string} apiUrl - The URL to fetch the weather data from.
  */
-function fetchWeatherDataAndDrawChart(chart, apiUrl) 
-{
+function fetchWeatherDataAndDrawChart(chart, apiUrl) {
     fetch(apiUrl)
         .then(response => response.ok ? response.json() : Promise.reject('Network response was not ok.'))
-        .then(data => 
-        {
-            const dates = data.weather_forecast.map(day => day.dag);
-            const temperatures = data.weather_forecast.map(day => day.max_temp);
+        .then(data => {
+            const dates = data.weather_forecast.map(item => {
+                // Split the date string
+                const [day, month, year] = item.dag.split('-').map(Number);
+
+                // Create a new Date object (Month is 0-based in JavaScript)
+                const date = new Date(year, month - 1, day);
+
+                // Map days to Dutch weekdays
+                const weekdays = ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'];
+                const weekday = weekdays[date.getDay()];
+
+                // Format the date string
+                // return `${weekday} ${String(day).padStart(2, '0')}-${String(month).padStart(2, '0')}`;
+                return `${weekday}`;
+            });
+
+            const temperatures = data.weather_forecast.map(item => item.max_temp);
+
+            // Draw the chart with the transformed dates and temperatures
             chart.drawChart(dates, temperatures);
         })
         .catch(error => console.error('There was a problem with the fetch operation:', error));
+}
+
+
+
+// Utility function to return the weekday in Dutch
+function getWeekday(date) {
+    const options = { weekday: 'short' };
+    return date.toLocaleDateString('nl-NL', options);
 }
 
 const myChart = new LineChart("myCanvas");
