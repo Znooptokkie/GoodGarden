@@ -43,8 +43,6 @@ Zorg dat je in de hoofdmap "GoodGarden" zit. Kijk in je path: "../GoodGarden". A
 
 We gebruiken [Github](https://github.com) voor versiebeheer. Voor de beschikbare versies, zie de [GoodGarden](https://github.com/Znooptokkie/GoodGarden).
 
-De branch "oomen" is up to date. Het mergen ging niet helemaal goed dus we hebben het niet met  "main" gemerged.
-
 ## Auteurs
 
 * **Atilla Oomen** - *Projectleider | Back end Programmeur* - [Znooptokkie](https://github.com/Znooptokkie)
