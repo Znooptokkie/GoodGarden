@@ -457,4 +457,28 @@ input:checked + .slider:before {
 .back-button:hover {
   background-color: rgb(171, 211, 174);
   color: white;
+}
+
+#battery-image-322 {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  visibility: hidden;
+  left: 16em;
+  top: 13.9em;
+}
+#battery-image-322.show {
+  visibility: visible;
+}
+
+#battery-image-256 {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  visibility: hidden;
+  left: 16em;
+  top: 23.1em;
+}
+#battery-image-256.show {
+  visibility: visible;
 }/*# sourceMappingURL=style.css.map */
