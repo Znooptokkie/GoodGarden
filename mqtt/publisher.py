@@ -7,7 +7,7 @@ import json
 from mqtt_client import create_client, start_loop  
 
 # Stel het interval in seconden in voor het periodiek ophalen en publiceren van data.
-publish_interval = 900  # MOET ~900 ZIJN. -- 15min
+publish_interval = 60  # MOET ~900 ZIJN. -- 15min
 
 # Definieer API-eindpunten en de corresponderende MQTT topics.
 api_endpoints = [

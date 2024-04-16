@@ -96,31 +96,31 @@ openModal();
 
 
 // Send a message to the main process to execute the Python script
-ipcRenderer.send('run-python-script', ['some', 'arguments']);
+// ipcRenderer.send('run-python-script', ['some', 'arguments']);
 
-ipcRenderer.on('python-script-response', (event, pythonData) => 
-{
-    if (pythonData === 'error') 
-    {
-        console.error('An error occurred while retrieving data from Python');
-    } 
-    else 
-    {
-        // Update HTML elements with data received from Python
-        document.getElementById('bodem-temperatuur').textContent = pythonData.bodemTemperatuur; // Adjust the property based on your actual Python response
-    }
-});
+// ipcRenderer.on('python-script-response', (event, pythonData) => 
+// {
+//     if (pythonData === 'error') 
+//     {
+//         console.error('An error occurred while retrieving data from Python');
+//     } 
+//     else 
+//     {
+//         // Update HTML elements with data received from Python
+//         document.getElementById('bodem-temperatuur').textContent = pythonData.bodemTemperatuur; // Adjust the property based on your actual Python response
+//     }
+// });
 
-// Listen for updates to HTML data from the main process
-ipcRenderer.on('update-html-data', (event, data) => 
-{
-    // Update the HTML with the received data
-    document.getElementById('batteryVoltage').innerText = data.batteryVoltage;
-    // Add similar lines for other data fields
-});
+// // Listen for updates to HTML data from the main process
+// ipcRenderer.on('update-html-data', (event, data) => 
+// {
+//     // Update the HTML with the received data
+//     document.getElementById('batteryVoltage').innerText = data.batteryVoltage;
+//     // Add similar lines for other data fields
+// });
 
-// Trigger an event to request data update
-ipcRenderer.send('request-update-data');
+// // Trigger an event to request data update
+// ipcRenderer.send('request-update-data');
  /*⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
