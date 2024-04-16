@@ -305,20 +305,3 @@ fetchPlantenData();
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀*/
-// Get the battery voltage
-// const batteryVoltage = parseFloat(document.getElementById('battery-voltage'));
- 
-// // Select the img element
-// const batteryImage = document.getElementById('battery-image');
- 
-// // Check the battery voltage and decide whether to show the image
-// if (batteryVoltage < 3.0) {
-//     // Battery is lower than 3.0 volts, show the empty battery image
-//     batteryImage.src = '../static/img/warning-logo.png';
-// } else if (batteryVoltage > 4.2) {
-//     // Battery is higher than 4.2 volts, do not show the image
-//     batteryImage.style.display = 'none';
-// } else {
-//     // Battery voltage is within the desired range, hide the image
-//     batteryImage.style.display = 'none';
-// }

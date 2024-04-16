@@ -151,7 +151,7 @@ CREATE TABLE `planten` (
 --
 
 INSERT INTO `planten` (`id`, `plant_naam`, `plantensoort`, `plant_geteelt`) VALUES
-(1, 'Tomatenplant', 'Groente', 1),
+(1, 'Tomatenplant', 'Groente', 1);
 
 -- --------------------------------------------------------
 

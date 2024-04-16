@@ -590,3 +590,22 @@ input:checked + .slider:before {
   background-color: $primary-color;
   color: white
 }
+@mixin battery-image-style {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  visibility: hidden;
+  left: 16em;
+  &.show {
+    visibility: visible;
+  }
+}
+#battery-image-322 {
+  @include battery-image-style;
+  top: 13.9em;
+}
+
+#battery-image-256 {
+  @include battery-image-style;
+  top: 23.1em;
+}
