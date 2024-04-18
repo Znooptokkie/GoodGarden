@@ -8,7 +8,7 @@
     <meta name="keywords" content="Sensor / Algoritme / Voeding / Planten / Data / Kas" />
     <link rel="stylesheet" href="../static/css/style.css" />
     <script src="../static/js/main.js" defer></script>
-    <script src="../static/js/grafiek.js" defer></script>
+    <script src="../static/js/weeGgrafiek.js" defer></script>
     <title>Informatie Sensor</title>
   </head>
   <body>
@@ -58,12 +58,7 @@
             <article class="grafiek">
               <article class="grafiek-innerbox">
                 <h2>Zonlicht</h2>
-                <canvas
-                  id="sensorCanvas"
-                  class="canvas-informatie-kas"
-                  width="275"
-                  height="275"
-                ></canvas>
+                <canvas id="sensorCanvas" class="canvas-informatie-kas" width="300" height="225"></canvas>
               </article>
             </article>
           </section>
@@ -131,5 +126,7 @@
         </article>
       </section>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
   </body>
 </html>
