@@ -28,6 +28,12 @@ Zorg dat je in de hoofdmap "GoodGarden" zit. Kijk in je path: "../GoodGarden". A
      pip install requests
      pip install flask-cors
 
+### pip sql fix 
+pip install --force-reinstall mysql-connector-python
+pip install --force-reinstall requests
+pip install --force-reinstall flask-cors
+
+
 ## Gebruik
 
 - De data wordt gefetched via MQTT, waarnaar het in topics wordt verdeeld en dan kan je met een script op he gewenste onderwerp "subscriben". 
