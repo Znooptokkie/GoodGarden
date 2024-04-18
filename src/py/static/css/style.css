@@ -236,12 +236,22 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   top: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 1.25rem;
+  padding: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 30vw;
+  width: 27.5vw;
   height: auto;
-  border: solid 2px #abd3ae;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+
+.modal h1 {
+  margin-bottom: 1rem;
+}
+
+.modal-binnen {
+  border: solid 2px rgb(171, 211, 174);
+  position: relative;
+  padding: 1rem;
+  border-radius: 25px;
 }
 
 .modal #plant-id {
@@ -250,10 +260,12 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
 
 .modal .close {
   color: #aaa;
-  float: right;
+  position: absolute;
   font-size: 2rem;
   font-weight: bold;
   margin-top: -35px;
+  right: 15px;
+  top: 45px;
 }
 
 .modal .close:hover,
@@ -261,6 +273,19 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+#myModal form .inputvelden {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#myModal h2 {
+  font-family: "Afacad", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 #myModal select,
@@ -282,7 +307,6 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   width: 48%;
   padding: 10px;
   box-sizing: border-box;
-  height: 40px;
 }
 
 #myModal .knop-container {
@@ -307,29 +331,48 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   box-sizing: border-box;
 }
 
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radio-group input[type=radio] {
+  margin-right: 5px; /* Kleine ruimte tussen de radio button en de label */
+}
+
+.radio-single {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.radio-single input {
+  transform: translateY(50%);
+}
+
 #myModal input[type=submit],
 #myModal button {
-  color: #fff;
   border: none;
-  border-radius: 15px;
+  border-radius: 50px;
   cursor: pointer;
+  color: "Akaya Kanadaka", system-ui;
 }
 
 #myModal input[type=submit] {
-  background: linear-gradient(45deg, #abd3ae, #6ebf7d);
+  background-color: rgb(171, 211, 174);
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1rem;
 }
 
 #myModal button {
-  background-color: white;
-  color: black;
-}
-
-.toevoeging {
-  background: linear-gradient(45deg, #abd3ae, #2ecc71);
+  color: white;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1rem;
 }
 
 .annulatie-knop {
-  background: linear-gradient(45deg, #ffcc00, #ff6600);
+  background-color: rgb(46, 86, 81);
 }
 
 .switch-container {

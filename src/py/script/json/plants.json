@@ -4,5 +4,29 @@
         "plant_naam": "Tomatenplant",
         "plantensoort": "Groente",
         "plant_geteelt": 1
+    },
+    {
+        "id": 2,
+        "plant_naam": "dsfsdf",
+        "plantensoort": "sdfdsfsdfsfasdf",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 3,
+        "plant_naam": "",
+        "plantensoort": "",
+        "plant_geteelt": 0
+    },
+    {
+        "id": 4,
+        "plant_naam": "uhubibjibib",
+        "plantensoort": "hhhhhhhhhhh",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 5,
+        "plant_naam": "qqqqqqqqqq",
+        "plantensoort": "qqqqqqqqqqqq",
+        "plant_geteelt": 0
     }
 ]

@@ -26,40 +26,50 @@
       <section class="content">
         <section class="kant-links">
               <table id="planten">
+                
               </table>
               <div class="formulier">
                 <div id="myModal" class="modal" style="display: none;">
+                  <article class="modal-binnen">
                     <h1 id="plant-id">Plant Toevoegen</h1>
                     <span class="close">&times;</span>
                     <form action="http://localhost:3000/submit-form" method="post" onsubmit="return addplant()">
-                        <label for="plantNaam">Naam van de plant</label>
-                        
-                        <input type="text" name="plant_naam" id="plantNaam">
-                        
-                        <label for="plantensoort">Soort van de plant</label>
-                        
-                        <input type="text" name="plantensoort" id="plantensoort">
-                        
-                        <label for="aanwezig">Aanwezig
-                          <input type="radio" name="plant_geteelt" id="aanwezig" value="true">
-                        </label>
-       
-                        <label for="afwezig">Afwezig
-                          <input type="radio" name="plant_geteelt" id="afwezig" value="false">
-                        </label>
+                      <section class="inputvelden">
+                        <article>
+                          <label for="plantNaam">Naam van de plant</label>
+                          <input type="text" name="plant_naam" id="plantNaam">
+                        </article>
+                        <article>
+                          <label for="plantensoort">Soort van de plant</label>
+                          <input type="text" name="plantensoort" id="plantensoort">
+                        </article>
+                      </section>
+                          <h2>Plant aanwezig in kas</h2>
+                          <section class="radio-group">
+                            <article class="radio-single">
+                              <input type="radio" name="plant_geteelt" id="aanwezig" value="true">
+                              <label for="aanwezig">Ja</label>
+                            </article>
+                            <article class="radio-single">
+                              <input type="radio" name="plant_geteelt" id="afwezig" value="false">
+                              <label for="afwezig">Nee</label>
+                            </article>
+                          </section>
 
-                        <label for="ontvangenMeldingen">Meldingen ontvangen</label>
-                        
-                        <select name="ontvangen_meldingen">
-                            <option value="true">Ja</option>
-                            <option value="false">Nee</option>
-                        </select>
-                        
-                        <section class="knop-container">
-                            <button class="annulatie-knop" type="button" onclick="closeOverlay()">Annuleren</button>
-                            <input type="submit" value="Submit">
-                        </section>
+
+                          <!-- <label for="ontvangenMeldingen">Meldingen ontvangen</label>
+                          
+                          <select name="ontvangen_meldingen">
+                              <option value="true">Ja</option>
+                              <option value="false">Nee</option>
+                          </select> -->
+
+                          <section class="knop-container">
+                              <button class="annulatie-knop" type="button" onclick="closeOverlay()">Annuleren</button>
+                              <input type="submit" value="Submit">
+                          </section>
                     </form>
+                  </article>
                 </div>
             </div>
             <div id="overlay" onclick="closeOverlay"></div>

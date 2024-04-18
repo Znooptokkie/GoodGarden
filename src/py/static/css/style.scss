@@ -368,12 +368,25 @@ body
   top: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 1.25rem;
+  padding: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 30vw;
+  width: 27.5vw;
   height: auto;
-  border: solid 2px #abd3ae;
-  border-radius: 10px;
+  // border: solid 2px #abd3ae;
+  border-radius: 5px;
+}
+
+.modal h1
+{
+  margin-bottom: 1rem;
+}
+
+.modal-binnen
+{
+  border: solid 2px $primary-color;
+  position: relative;
+  padding: 1rem;
+  border-radius: 25px;
 }
 
 .modal #plant-id
@@ -383,17 +396,37 @@ body
 
 .modal .close {
   color: #aaa;
-  float: right;
+  position: absolute;
   font-size: 2rem;
   font-weight: bold;
   margin-top: -35px;
+  right: 15px;
+  top: 45px;
 }
+
 .modal .close:hover,
 .modal .close:active {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
+
+#myModal form .inputvelden 
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#myModal h2
+{
+  font-family: $font-text;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
 #myModal select,
 #myModal input {
   width: calc(100% - 20px);
@@ -413,7 +446,7 @@ body
   width: 48%;
   padding: 10px;
   box-sizing: border-box;
-  height: 40px;
+  // height: 40px;
 }
 
 #myModal .knop-container {
@@ -438,29 +471,63 @@ body
   box-sizing: border-box;
 }
 
+.radio-group 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    // margin-left: 1rem;
+    // gap: 5px; /* Pas de afstand aan tussen de elementen */
+}
+
+.radio-group input[type="radio"] 
+{
+    margin-right: 5px; /* Kleine ruimte tussen de radio button en de label */
+}
+
+.radio-single
+{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // justify-content: center;
+
+}
+
+.radio-single input
+{
+  transform: translateY(50%);
+}
+
 #myModal input[type="submit"],
 #myModal button {
-  color: #fff;
+  // color: #fff;
   border: none;
-  border-radius: 15px;
+  border-radius: 50px;
   cursor: pointer;
+  color: $font-titels;
 }
 
 #myModal input[type="submit"] {
-  background: linear-gradient(45deg, #abd3ae, #6ebf7d);
+  background-color: $primary-color;
+  font-family: $font-titels;
+  font-size: 1rem;
 }
 
 #myModal button {
-  background-color: white;
-  color: black;
+  // background-color: white;
+  color: white;
+  font-family: $font-titels;
+  font-size: 1rem;
 }
 
 .toevoeging {
-  background: linear-gradient(45deg, #abd3ae, #2ecc71);
+  // background: linear-gradient(45deg, #abd3ae, #2ecc71);
+  
 }
 
 .annulatie-knop {
-  background: linear-gradient(45deg, #ffcc00, #ff6600);
+  background-color: $titel-color;
 }
 
 .switch-container {
