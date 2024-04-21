@@ -59,8 +59,8 @@ CREATE TABLE `devices` (
   `last_battery_voltage` float DEFAULT NULL,
   `device_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `last_seen` (`last_seen`),
-  UNIQUE KEY `last_battery_voltage` (`last_battery_voltage`)
+  UNIQUE KEY `last_seen` (`last_seen`)
+  -- UNIQUE KEY `last_battery_voltage` (`last_battery_voltage`)
 );
 
 INSERT INTO `devices` (`serial_number`, `name`, `label`, `last_seen`, `last_battery_voltage`, `device_id`) VALUES
@@ -77,8 +77,8 @@ CREATE TABLE `fetch` (
   `value` decimal(10,5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`),
-  UNIQUE KEY `value` (`value`)
+  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
+  -- UNIQUE KEY `value` (`value`)
 );
 
 -- PAR_EVENTS
@@ -91,8 +91,8 @@ CREATE TABLE `par_events` (
   `value` decimal(10,5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`),
-  UNIQUE KEY `value` (`value`)
+  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
+  -- UNIQUE KEY `value` (`value`)
 );
 
 -- PLANTEN
@@ -147,8 +147,8 @@ CREATE TABLE `relative_humidity_events` (
   `value` decimal(10,5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`),
-  UNIQUE KEY `value` (`value`)
+  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
+  -- UNIQUE KEY `value` (`value`)
 );
 
 -- SOIL ELECTRIC CONDUCTIVITY EVENTS
@@ -161,8 +161,8 @@ CREATE TABLE `soil_electric_conductivity_events` (
   `value` decimal(10,5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`),
-  UNIQUE KEY `value` (`value`)
+  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
+  -- UNIQUE KEY `value` (`value`)
 );
 
 -- SOIL RELATIVE PERMITTIVITY EVENTS
@@ -175,8 +175,8 @@ CREATE TABLE `soil_relative_permittivity_events` (
   `value` decimal(10,5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`),
-  UNIQUE KEY `value` (`value`)
+  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
+  -- UNIQUE KEY `value` (`value`)
 );
 
 -- SOIL TEMPERATURE EVENTS
@@ -189,6 +189,6 @@ CREATE TABLE `soil_temperature_events` (
   `value` decimal(10,5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`),
-  UNIQUE KEY `value` (`value`)
+  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
+  -- UNIQUE KEY `value` (`value`)
 );
