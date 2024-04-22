@@ -18,6 +18,7 @@
   "dependencies": {
     "axios": "^1.6.7",
     "body-parser": "^1.20.2",
+    "chart.js": "^4.4.2",
     "elctron": "^0.0.1-security",
     "express": "^4.19.2",
     "mysql2": "^3.9.1",

@@ -22,10 +22,17 @@ Zorg dat je in de hoofdmap "GoodGarden" zit. Kijk in je path: "../GoodGarden". A
      npm install wait-on --save-dev
      npm install concurrently --save-dev
      
-     
+     npm install chart.js
+
      pip install mysql-connector-python
      pip install requests
      pip install flask-cors
+
+### pip sql fix 
+pip install --force-reinstall mysql-connector-python
+pip install --force-reinstall requests
+pip install --force-reinstall flask-cors
+
 
 ## Gebruik
 

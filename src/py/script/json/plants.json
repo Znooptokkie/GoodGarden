@@ -6,27 +6,27 @@
         "plant_geteelt": 1
     },
     {
-        "id": 15,
-        "plant_naam": "sadgfghsdsgsdgvd",
-        "plantensoort": "dsgdfsgdsgg",
+        "id": 2,
+        "plant_naam": "dsfsdf",
+        "plantensoort": "sdfdsfsdfsfasdf",
         "plant_geteelt": 1
     },
     {
-        "id": 16,
-        "plant_naam": "sadgfghsdsgsdgvd",
-        "plantensoort": "dsgdfsgdsgg",
-        "plant_geteelt": 1
-    },
-    {
-        "id": 17,
-        "plant_naam": "3333333",
-        "plantensoort": "333333",
+        "id": 3,
+        "plant_naam": "",
+        "plantensoort": "",
         "plant_geteelt": 0
     },
     {
-        "id": 18,
-        "plant_naam": "wqdewd",
-        "plantensoort": "wwwwwwww",
+        "id": 4,
+        "plant_naam": "uhubibjibib",
+        "plantensoort": "hhhhhhhhhhh",
         "plant_geteelt": 1
+    },
+    {
+        "id": 5,
+        "plant_naam": "qqqqqqqqqq",
+        "plantensoort": "qqqqqqqqqqqq",
+        "plant_geteelt": 0
     }
 ]
