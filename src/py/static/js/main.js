@@ -43,21 +43,20 @@ function closeApplication()
  * Functie om een modaal venster te openen.
  * Deze functie stelt event listeners in voor het openen en sluiten van de modaal.
  */
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function openModal()
 {
     // Verkrijg de elementen voor de modaal, de open-knop en de sluit-knop op basis van hun ID of klasse.
     const modal = document.getElementById("myModal");
     const button = document.getElementById("modalButton");
     const close = document.getElementsByClassName("close")[0];
- 
+
+    modal.style.display = "block";
     // Controleer of de elementen bestaan om fouten te voorkomen.
     if (modal && button) 
     {
         // Toon de modaal wanneer op de knop wordt geklikt.
-        button.onclick = function () 
-        {
-            modal.style.display = "block";
-        }
  
         // Sluit de modaal wanneer op het 'sluiten' icoon wordt geklikt.
         close.onclick = function () 
@@ -75,8 +74,9 @@ function openModal()
         }
     } 
 }
-// Call openModal when DOM content is loaded
-openModal();
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 /*⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

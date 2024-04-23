@@ -21,7 +21,7 @@ class PlantGrid {
         for (let i = 0; i < this.rows; i++) {
             this.grid[i] = new Array(this.cols).fill(null);
         }
-
+        console.log(this.grid);
         // Laadt JSON data van de server.
         this.loadData();
     }
