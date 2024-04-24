@@ -7,26 +7,14 @@
     },
     {
         "id": 2,
-        "plant_naam": "dsfsdf",
-        "plantensoort": "sdfdsfsdfsfasdf",
-        "plant_geteelt": 1
-    },
-    {
-        "id": 3,
-        "plant_naam": "",
+        "plant_naam": "test",
         "plantensoort": "",
         "plant_geteelt": 0
     },
     {
-        "id": 4,
-        "plant_naam": "uhubibjibib",
-        "plantensoort": "hhhhhhhhhhh",
+        "id": 3,
+        "plant_naam": "test1",
+        "plantensoort": "",
         "plant_geteelt": 1
-    },
-    {
-        "id": 5,
-        "plant_naam": "qqqqqqqqqq",
-        "plantensoort": "qqqqqqqqqqqq",
-        "plant_geteelt": 0
     }
 ]
