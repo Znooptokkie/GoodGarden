@@ -9,10 +9,16 @@
     <link rel="stylesheet" href="../static/css/style.css" />
     <script src="../static/js/main.js" defer></script>
     <script src="../static/js/weerGrafiek.js" defer></script>
+    <script src="../static/js/switch.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <title>Planten</title>
   </head>
   <body>
-    <section class="mainContainer">
+      <section class="mainContainer">
+  <article id="loading-screen">
+  <article class="loader"></article>
+  </article>
       <article>
         <div class="pagina-container">
           <div class="close-button" onclick="closeApplication()">&times;</div>
@@ -38,14 +44,14 @@
                   <!-- Rijen met specifieke informatie zoals dagen tot oogst en tevredenheid -->
                   <tr class="tr-informatie-kas">
                     <td>Aanwezig in kas</td>
-                    <div class="switch-container">
-                      <form action="{{ url_for('toggle') }}" method="POST">
-                        <label class="switch">
-                          <input type="checkbox" name="schakelaar" {% if schakelaar.status %}checked{% endif %}>
-                          <span class="slider"></span>
+                    <td>
+                      <div class="switch-container">
+                        <label class="switch" for="switch">
+                            <input id="switch" type="checkbox" name="schakelaar">
+                            <span class="slider"></span>
                         </label>
-                      </form>
-                    </div>
+                    </div>                    
+                    </td>
                   </tr>
                   <tr class="tr-informatie-kas">
                     <td>Dagen tot Oogst</td>
@@ -134,7 +140,5 @@
         </article>
       </section>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
   </body>
 </html>

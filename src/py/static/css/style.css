@@ -20,7 +20,11 @@ a {
 }
 
 body {
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/achtergrond.webp");
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("../images/achtergrond.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -77,16 +81,34 @@ body .mainContainer .mainBorder #sectie-1 .parent-algemeen-overzicht {
   padding: 1rem;
   background-color: white;
 }
-body .mainContainer .mainBorder #sectie-1 .parent-algemeen-overzicht .algemeen-overzicht {
+body
+  .mainContainer
+  .mainBorder
+  #sectie-1
+  .parent-algemeen-overzicht
+  .algemeen-overzicht {
   border: solid 2px rgb(171, 211, 174);
   border-radius: 35px;
   font-size: 1.25rem;
   padding: 0.5rem 1rem;
 }
-body .mainContainer .mainBorder #sectie-1 .parent-algemeen-overzicht .algemeen-overzicht .table-informatie-kas {
+body
+  .mainContainer
+  .mainBorder
+  #sectie-1
+  .parent-algemeen-overzicht
+  .algemeen-overzicht
+  .table-informatie-kas {
   width: 100%;
 }
-body .mainContainer .mainBorder #sectie-1 .parent-algemeen-overzicht .algemeen-overzicht .table-informatie-kas .tr-informatie-kas {
+body
+  .mainContainer
+  .mainBorder
+  #sectie-1
+  .parent-algemeen-overzicht
+  .algemeen-overzicht
+  .table-informatie-kas
+  .tr-informatie-kas {
   display: flex;
   justify-content: space-between;
   text-align: left;
@@ -143,7 +165,15 @@ body .mainContainer .mainBorder .content .kant-links #planten td article {
   border-radius: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-body .mainContainer .mainBorder .content .kant-links #planten td article #toevoegen {
+body
+  .mainContainer
+  .mainBorder
+  .content
+  .kant-links
+  #planten
+  td
+  article
+  #toevoegen {
   height: 5rem;
   width: 5rem;
 }
@@ -168,7 +198,14 @@ body .mainContainer .mainBorder .content .kant-rechts #metingen #main-waardes {
   padding-bottom: 0;
   width: 100%;
 }
-body .mainContainer .mainBorder .content .kant-rechts #metingen #main-waardes table {
+body
+  .mainContainer
+  .mainBorder
+  .content
+  .kant-rechts
+  #metingen
+  #main-waardes
+  table {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -194,16 +231,51 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table {
   justify-content: space-around;
   height: 90%;
 }
-body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table table tr td {
+body
+  .mainContainer
+  .mainBorder
+  .grid-column-2
+  .grid-2-child
+  .parent-table
+  table
+  tr
+  td {
   font-size: 1.05rem;
 }
-body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-table-1 tr td {
+body
+  .mainContainer
+  .mainBorder
+  .grid-column-2
+  .grid-2-child
+  .parent-table
+  .kas-table-1
+  tr
+  td {
   font-size: 1.25rem;
 }
-body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-table-2 {
+body
+  .mainContainer
+  .mainBorder
+  .grid-column-2
+  .grid-2-child
+  .parent-table
+  .kas-table-2 {
   position: relative;
 }
-body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-table-2::after, body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-table-2::before {
+body
+  .mainContainer
+  .mainBorder
+  .grid-column-2
+  .grid-2-child
+  .parent-table
+  .kas-table-2::after,
+body
+  .mainContainer
+  .mainBorder
+  .grid-column-2
+  .grid-2-child
+  .parent-table
+  .kas-table-2::before {
   content: "";
   position: absolute;
   left: 0;
@@ -212,10 +284,22 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   width: 90%;
   background: black;
 }
-body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-table-2::after {
+body
+  .mainContainer
+  .mainBorder
+  .grid-column-2
+  .grid-2-child
+  .parent-table
+  .kas-table-2::after {
   bottom: -20px;
 }
-body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-table-2::before {
+body
+  .mainContainer
+  .mainBorder
+  .grid-column-2
+  .grid-2-child
+  .parent-table
+  .kas-table-2::before {
   top: -20px;
 }
 
@@ -323,7 +407,7 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   box-sizing: border-box;
 }
 
-#myModal input[type=text],
+#myModal input[type="text"],
 #myModal select {
   border: 2px solid #abd3ae;
   padding: 10px;
@@ -337,7 +421,7 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   align-items: flex-start;
 }
 
-.radio-group input[type=radio] {
+.radio-group input[type="radio"] {
   margin-right: 5px; /* Kleine ruimte tussen de radio button en de label */
 }
 
@@ -351,7 +435,7 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   transform: translateY(50%);
 }
 
-#myModal input[type=submit],
+#myModal input[type="submit"],
 #myModal button {
   border: none;
   border-radius: 50px;
@@ -359,7 +443,7 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   color: "Akaya Kanadaka", system-ui;
 }
 
-#myModal input[type=submit] {
+#myModal input[type="submit"] {
   background-color: rgb(171, 211, 174);
   font-family: "Akaya Kanadaka", system-ui;
   font-size: 1rem;
@@ -392,7 +476,7 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   height: 25px;
 }
 
-.switch input[type=checkbox] {
+.switch input[type="checkbox"] {
   opacity: 0;
   width: 0;
   height: 0;
@@ -524,4 +608,41 @@ input:checked + .slider:before {
 }
 #battery-image-256.show {
   visibility: visible;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 39, 39, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  border: 10px solid rgb(171, 211, 174);
+  border-top: 10px solid #3b534f;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
