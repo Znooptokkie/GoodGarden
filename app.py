@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import mysql.connector
 import requests
+from flask import request
  
 app = Flask(__name__)
  
@@ -94,6 +95,69 @@ def get_planten():
         return jsonify(planten_response)
  
     return jsonify(planten_response)
+# Functie om de plantgegevens bij te werken in de database
+def update_plant_geteelt(plant_id, plant_geteelt):
+    connection = database_connect()
+    if connection and connection.is_connected():
+        try:
+            cursor = connection.cursor()
+
+            # Query om de plant_geteelt-waarde bij te werken
+            query = "UPDATE planten SET plant_geteelt = %s WHERE id = %s"
+            cursor.execute(query, (plant_geteelt, plant_id))
+
+            connection.commit()  # Commit de transactie
+            connection.close()
+            return True
+        except Exception as e:
+            print("Fout bij het bijwerken van plant_geteelt:", e)
+            return False
+    else:
+        return False
+
+@app.route('/get_plant_geteelt/<int:plant_id>', methods=['GET'])
+def api_get_plant_geteelt(plant_id):
+    connection = database_connect()
+    if connection and connection.is_connected():
+        try:
+            cursor = connection.cursor()
+
+            # Query to fetch the stored value of plant_geteelt for the specified plant ID
+            query = "SELECT plant_geteelt FROM planten WHERE id = %s"
+            cursor.execute(query, (plant_id,))
+            result = cursor.fetchone()
+
+            connection.close()
+
+            if result:
+                plant_geteelt = result[0]
+                return jsonify({"plant_geteelt": plant_geteelt}), 200
+            else:
+                return jsonify({"error": "Plant not found"}), 404
+        except Exception as e:
+            print("Error fetching plant_geteelt:", e)
+            return jsonify({"error": "Internal server error"}), 500
+    else:
+        return jsonify({"error": "Database connection error"}), 500
+    
+    
+@app.route('/update_plant_geteelt/<int:plant_id>', methods=['POST'])
+def api_update_plant_geteelt(plant_id):
+    # Get the data from the request body
+    data = request.json
+
+    # Check if the required data is present in the request
+    if 'plant_geteelt' not in data:
+        return jsonify({"error": "plant_geteelt is missing in the request"}), 400
+
+    plant_geteelt = data['plant_geteelt']
+
+    # Call the function to update the plant_geteelt data in the database
+    if update_plant_geteelt(plant_id, plant_geteelt):
+        return jsonify({"message": "Plant_geteelt successfully updated"}), 200
+    else:
+        return jsonify({"error": "Failed to update plant_geteelt"}), 500
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000)
