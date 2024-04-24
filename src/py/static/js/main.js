@@ -139,23 +139,43 @@ openModal();
  * Functie om batterijdata op te halen wanneer de pagina laadt.
  * Deze functie haalt data op met Axios en verwerkt deze vervolgens.
  */
-function fetchBatteryData() 
-{
-    // Voer een GET-verzoek uit naar de server om batterijdata op te halen.
-    axios.get('http://127.0.0.1:5000')
-        .then(response => 
-        {
-            // Verwerk de ontvangen data.
-            const batteryData = response.data;
-            updateBatteryData(batteryData);
-        })
-        .catch(error => 
-        {
-            // Log eventuele fouten tijdens het ophalen.
-            console.error('Error fetching battery data:', error);
-        });
+
+////////
+// loading screen
+document.addEventListener('DOMContentLoaded', function() {
+    showLoadingScreen(); // Toon laadscherm wanneer de pagina wordt geladen
+    fetchBatteryData(); // Haal gegevens op
+      startTimer();
+});
+
+function showLoadingScreen() {
+    document.getElementById('loading-screen').style.display = 'block';
 }
 
+function hideLoadingScreen() {
+    document.getElementById('loading-screen').style.display = 'none';
+}
+
+function fetchBatteryData() {
+    // Voer een GET-verzoek uit naar de server om batterijdata op te halen.
+    axios.get('http://127.0.0.1:5000/')
+        .then(response => {
+            // Verwerk de ontvangen data.
+            const batteryData = response.data;
+            // Roep de updateBatteryData-functie aan om de batterijdata bij te werken.
+            updateBatteryData(batteryData);
+        })
+        .catch(error => {
+            // Log eventuele fouten tijdens het ophalen.
+            console.error('Error fetching all data:', error);
+            hideLoadingScreen(); // Ve  rberg laadscherm bij fout
+        });
+}
+function startTimer() {
+    // Stel de timer in op 0.1 seconden (100 milliseconden)
+    setTimeout(hideLoadingScreen, 100); // Verberg laadscherm na 1 seconden
+}
+/////////
 /**
  * Functie om batterijdata op de pagina bij te werken.
  * Deze functie update de HTML met de ontvangen batterijdata.
