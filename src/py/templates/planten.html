@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="De pagina voor de verschillende sensoren" />
+    <meta name="author" content="B. Diker, A. Oomen, J. Doekhi, R. van Putten, M. Çifçi" />
+    <meta name="keywords" content="Planten informatie / Algoritme / Voeding / Planten / Data / Kas" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <!-- <script src="../static/js/main.js" defer></script> -->
+    <!-- <script src="../static/js/weerGrafiek.js" defer></script> -->
+    <title>Planten</title>
+  </head>
+  <body>
+    <section class="mainContainer">
+      <article>
+        <div class="pagina-container">
+          <div class="close-button" onclick="closeApplication()">&times;</div>
+        </div>
+        <div class="container">
+          <a href="index.html" class="back-button">&#8592;</a>
+        </div>
+        <a href="index.html">
+          <img src="../static/images/logo.png" class="goodgarden-logo">
+        </a>
+      </article>
+      <!-- Bevat de primaire inhoud van de pagina -->
+      <section class="mainBorder informatie-kas-main-container">
+        <article>
+          <h1 class="pagina-titel plant-titel">Planten</h1>
+          <!-- Bevat een overzicht van algemene informatie en grafieken -->
+          <section id="sectie-1">
+            <!-- Weergave van belangrijke kasstatistieken -->
+            <article class="parent-algemeen-overzicht">
+              <article class="algemeen-overzicht">
+                <!-- Tabel met statische data over de kas -->
+                <table class="table-informatie-kas">
+                  <!-- Rijen met specifieke informatie zoals dagen tot oogst en tevredenheid -->
+                  <tr class="tr-informatie-kas">
+                    <td>Aanwezig in kas</td>
+                    <div class="switch-container">
+                      <!-- <form action="{{ url_for('toggle') }}" method="POST">
+                        <label class="switch">
+                          <input type="checkbox" name="schakelaar" {% if schakelaar.status %}checked{% endif %}>
+                          <span class="slider"></span>
+                        </label>
+                      </form> -->
+                      <p>--</p>
+                    </div>
+                  </tr>
+                  <tr class="tr-informatie-kas">
+                    <td>Dagen tot Oogst</td>
+                    <td>12</td>
+                  </tr>
+                  <tr class="tr-informatie-kas">
+                    <td>Dagen in Kas</td>
+                    <td>2</td>
+                  </tr>
+                  <tr class="tr-informatie-kas">
+                    <td>Tevredenheid</td>
+                    <td>80%</td>
+                  </tr>
+                </table>
+              </article>
+            </article>
+            <!-- Sectie voor het weergeven van een grafiek over zonlicht -->
+            <article class="grafiek">
+              <article class="grafiek-innerbox">
+                <h2>Zonlicht</h2>
+                <canvas id="sensorCanvas" class="canvas-informatie-kas" width="300" height="225"></canvas>
+              </article>
+            </article>
+          </section>
+        </article>
+        <!-- Presenteert aanvullende informatie in tabelvorm -->
+        <article class="grid-column-2">
+          <article class="grid-2-child">
+            <section class="parent-table">
+               <!-- Meerdere tabellen met informatie over geplante aantallen, oogstresultaten en klimaatcondities -->
+            
+            </section>
+          </article>
+        </article>
+      </section>
+    </section>
+  </body>
+</html>

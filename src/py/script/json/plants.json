@@ -4,17 +4,5 @@
         "plant_naam": "Tomatenplant",
         "plantensoort": "Groente",
         "plant_geteelt": 1
-    },
-    {
-        "id": 2,
-        "plant_naam": "test",
-        "plantensoort": "",
-        "plant_geteelt": 0
-    },
-    {
-        "id": 3,
-        "plant_naam": "test1",
-        "plantensoort": "",
-        "plant_geteelt": 1
     }
 ]
