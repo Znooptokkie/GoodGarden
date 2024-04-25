@@ -6,27 +6,51 @@
         "plant_geteelt": 1
     },
     {
-        "id": 2,
-        "plant_naam": "dsfsdf",
-        "plantensoort": "sdfdsfsdfsfasdf",
+        "id": 15,
+        "plant_naam": "Aardbei",
+        "plantensoort": "Fruit",
         "plant_geteelt": 1
     },
     {
-        "id": 3,
+        "id": 16,
+        "plant_naam": "ay",
+        "plantensoort": "plant",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 17,
         "plant_naam": "",
         "plantensoort": "",
         "plant_geteelt": 0
     },
     {
-        "id": 4,
-        "plant_naam": "uhubibjibib",
-        "plantensoort": "hhhhhhhhhhh",
+        "id": 18,
+        "plant_naam": "",
+        "plantensoort": "",
+        "plant_geteelt": 0
+    },
+    {
+        "id": 19,
+        "plant_naam": "aardebei",
+        "plantensoort": "froot",
         "plant_geteelt": 1
     },
     {
-        "id": 5,
-        "plant_naam": "qqqqqqqqqq",
-        "plantensoort": "qqqqqqqqqqqq",
-        "plant_geteelt": 0
+        "id": 20,
+        "plant_naam": "aardebei",
+        "plantensoort": "froot",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 21,
+        "plant_naam": "aardebij",
+        "plantensoort": "froot",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 22,
+        "plant_naam": "fake fake",
+        "plantensoort": "real real",
+        "plant_geteelt": 1
     }
 ]

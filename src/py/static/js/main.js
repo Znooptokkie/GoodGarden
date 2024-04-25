@@ -45,35 +45,39 @@ function closeApplication()
  */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function openModal()
-{
-    // Verkrijg de elementen voor de modaal, de open-knop en de sluit-knop op basis van hun ID of klasse.
+function openModal() {
+    // Get references to the modal, open button, close button, and submit button
     const modal = document.getElementById("myModal");
     const button = document.getElementById("modalButton");
+    const closeButton = document.getElementsByClassName("annulatie-knop")[0];
     const close = document.getElementsByClassName("close")[0];
+    const submit = document.getElementsByClassName("submit-plant")[0];
 
+    // Display the modal
     modal.style.display = "block";
-    // Controleer of de elementen bestaan om fouten te voorkomen.
-    if (modal && button) 
-    {
-        // Toon de modaal wanneer op de knop wordt geklikt.
- 
-        // Sluit de modaal wanneer op het 'sluiten' icoon wordt geklikt.
-        close.onclick = function () 
-        {
+
+    // Check if the modal and button elements exist to prevent errors
+    if (modal && button) {
+        // Close the modal when the 'close' icon or 'cancel' button is clicked
+        close.onclick = closeButton.onclick = function () {
             modal.style.display = "none";
-        }
- 
-        // Sluit de modaal wanneer buiten de modaal wordt geklikt.
-        window.onclick = function (event) 
-        {
-            if (event.target == modal) 
-            {
+        };
+
+        // Close the modal when the 'submit' button is clicked
+        submit.onclick = function () {
+            alert("Plant toegevoegd");
+            modal.style.display = "none";
+        };
+
+        // Close the modal when the user clicks anywhere outside of it
+        window.onclick = function (event) {
+            if (event.target === modal) {
                 modal.style.display = "none";
             }
-        }
-    } 
+        };
+    }
 }
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
