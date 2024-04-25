@@ -4,5 +4,65 @@
         "plant_naam": "Tomatenplant",
         "plantensoort": "Groente",
         "plant_geteelt": 1
+    },
+    {
+        "id": 2,
+        "plant_naam": "ewrterwterwt",
+        "plantensoort": "erwterwtrewt",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 3,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 4,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 5,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 6,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 7,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 8,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 9,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 10,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 11,
+        "plant_naam": "32532532",
+        "plantensoort": "51325325325",
+        "plant_geteelt": 1
     }
 ]

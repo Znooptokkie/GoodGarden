@@ -21,6 +21,7 @@ class PlantGrid {
         for (let i = 0; i < this.rows; i++) {
             this.grid[i] = new Array(this.cols).fill(null);
         }
+        console.log(this.grid);
 
         // Laadt JSON data van de server.
         this.loadData();
@@ -55,57 +56,77 @@ class PlantGrid {
     }
     
 
-    displayGrid() {
-        const plantenTable = document.getElementById("planten");
+    displayGrid() 
+{
+    const plantenTable = document.getElementById("planten");
 
-        let itemCount = 0; // Counter for the number of items in the grid
+    let addPlaced = false; // Flag to track if the "Add" button has been placed
 
-        this.grid.forEach((row, rowIndex) => {
-            const tr = document.createElement("tr");
+    this.grid.forEach((row, rowIndex) => 
+    {
+        const tr = document.createElement("tr");
 
-            row.forEach((plant, colIndex) => {
-                const td = document.createElement("td");
+        row.forEach((plant, colIndex) => 
+        {
+            const td = document.createElement("td");
 
-                if (itemCount < 8) {
-                    if (plant) {
-                        // Handle regular plant items
-                        const link = document.createElement("a");
-                        link.href = `planteninfo.html?id=${plant.id}`; // Link naar de planteninfo pagina met plant id als query parameter
+            if (plant) 
+            {
+                // Handle regular plant items
+                const link = document.createElement("a");
+                link.href = `planteninfo.html?id=${plant.id}`; // Link to the plant info page with plant id as query parameter
+        
+                const article = document.createElement("article");
+                article.classList.add("plant-container");
+                link.appendChild(article); // Append the article to the link
+        
+                const img = article.appendChild(document.createElement("img"));
+                img.src = "../static/images/icon_awesome-apple-alt.png";
+                const h2 = article.appendChild(document.createElement("h2"));
+                h2.classList.add("plant-naam");
+                h2.textContent = plant.plantNaam;
+        
+                td.appendChild(link); // Append the link to the td
+            } 
+            else if (!addPlaced) // Check if the "Add" button has not been placed yet
+            {
+                // Handle the "Add" button
+                const article = document.createElement("article");
+                const img = article.appendChild(document.createElement("img"));
+                img.src = "../static/images/plus.png";
+                img.id = "toevoegen";
+                img.alt = "Add";
+                article.id = "modalButton";
+                article.onclick = openModal;
+        
+                td.appendChild(article);
+                addPlaced = true; // Set the flag to true after placing the "Add" button
+            }
 
-                        const article = document.createElement("article");
-                        article.classList.add("plant-container");
-                        link.appendChild(article); // Voeg het artikel toe aan de link
-
-                        const img = article.appendChild(document.createElement("img"));
-                        img.src = "../static/images/icon_awesome-apple-alt.png";
-                        const h2 = article.appendChild(document.createElement("h2"));
-                        h2.classList.add("plant-naam");
-                        h2.textContent = plant.plantNaam;
-
-                        td.appendChild(link); // Voeg de link toe aan de td
-                        itemCount++;
-                    } else if (rowIndex === this.rows - 1 && colIndex === this.cols - 1 && itemCount <= 7) {
-                        // Handle the "Add" button
-                        const article = document.createElement("article");
-                        const img = article.appendChild(document.createElement("img"));
-                        img.src = "../static/images/plus.png";
-                        img.id = "toevoegen";
-                        img.alt = "Add";
-                        article.id = "modalButton";
-                        article.onclick = openModal;
-                
-                        td.appendChild(article);
-                        itemCount++;
-                    }
-                }
-
-                tr.appendChild(td);
-            });
-
-            plantenTable.appendChild(tr);
+            tr.appendChild(td);
         });
-    
+
+        plantenTable.appendChild(tr);
+    });
+
+    // If no "Add" button has been placed and there is still space, add it at the end
+    if (!addPlaced) 
+    {
+        // Assume last tr and td are available for simplicity, you may need to create new if not existing
+        const lastTr = plantenTable.lastChild;
+        const td = document.createElement("td");
+        const article = document.createElement("article");
+        const img = article.appendChild(document.createElement("img"));
+        img.src = "../static/images/plus.png";
+        img.id = "toevoegen";
+        img.alt = "Add";
+        article.id = "modalButton";
+        article.onclick = openModal;
+        td.appendChild(article);
+        lastTr.appendChild(td);
     }
+}
+
 
 
 }

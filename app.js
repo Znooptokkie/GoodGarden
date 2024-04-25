@@ -91,8 +91,8 @@ let mainWindow; // Referentie naar het hoofdvenster van de Electron app.
 function createWindow() 
 {
   mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 800,
+    width: 1920,
+    height: 1080,
     frame: false,
     icon: path.join(__dirname, "src/py/static/images/logo.png"),
     webPreferences: {
