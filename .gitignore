@@ -4,5 +4,3 @@ venv/
 .vscode/
 
 /src/py/script/json/plants.json
-
-__pycache__
