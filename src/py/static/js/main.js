@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showLoadingScreen(); // Toon laadscherm wanneer de pagina wordt geladen
     fetchBatteryData(); // Haal gegevens op
       startTimer();
+    //   console.log("GELUKTWFE");
 });
 
 function showLoadingScreen() {
