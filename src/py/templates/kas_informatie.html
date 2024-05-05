@@ -3,25 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="De pagina voor de verschillende sensoren" />
-    <meta name="author" content="B. Diker, A. Oomen, J. Doekhi, R. van Putten, M. Çifçi" />
-    <meta name="keywords" content="Kas informatie / Algoritme / Voeding / Planten / Data / Kas" />
+    <meta
+      name="description"
+      content="De pagina voor de verschillende sensoren"
+    />
+    <meta
+      name="author"
+      content="B. Diker, A. Oomen, J. Doekhi, R. van Putten, M. Çifçi"
+    />
+    <meta
+      name="keywords"
+      content="Kas informatie / Algoritme / Voeding / Planten / Data / Kas"
+    />
     <link rel="stylesheet" href="../static/css/style.css" />
     <script src="../static/js/main.js" defer></script>
     <script src="../static/js/weerGrafiek.js" defer></script>
     <title>Informatie Kas</title>
   </head>
   <body>
+    <article class="nav-menu">
+      <div class="pagina-container">
+        <div class="close-button" onclick="closeApplication()">&times;</div>
+      </div>
+      <div class="container">
+        <a href="index.html" class="back-button">&#8592;</a>
+      </div>
+    </article>
     <section class="mainContainer">
       <article>
-        <div class="pagina-container">
-          <div class="close-button" onclick="closeApplication()">&times;</div>
-        </div>
         <div class="container">
           <a href="index.html" class="back-button">&#8592;</a>
         </div>
         <a href="index.html">
-          <img src="../static/images/logo.png" class="goodgarden-logo">
+          <img src="../static/images/logo.png" class="goodgarden-logo" />
         </a>
       </article>
       <!-- De container die de inhoud van de informatiepagina bevat -->
@@ -33,25 +47,25 @@
             <!-- Weergave van sensor data en kascondities -->
             <article class="parent-algemeen-overzicht">
               <article class="algemeen-overzicht">
-                 <!-- Tabel voor het weergeven van sensorgegevens -->
+                <!-- Tabel voor het weergeven van sensorgegevens -->
                 <table class="table-informatie-kas">
                   <tr class="tr-informatie-kas">
-                      <td>Device</td>
-                      <td id="deviceNumber"></td>
+                    <td>Device</td>
+                    <td id="deviceNumber"></td>
                   </tr>
                   <tr class="tr-informatie-kas">
-                      <td>Batterij Voltage</td>
-                      <td id="voltage"></td>
+                    <td>Batterij Voltage</td>
+                    <td id="voltage"></td>
                   </tr>
                   <tr class="tr-informatie-kas">
-                      <td>Tijden</td>
-                      <td id="time"></td>
+                    <td>Tijden</td>
+                    <td id="time"></td>
                   </tr>
                   <tr class="tr-informatie-kas">
-                      <td>Zulu</td>
-                      <td id="zulu"></td>
+                    <td>Zulu</td>
+                    <td id="zulu"></td>
                   </tr>
-              </table>
+                </table>
               </article>
             </article>
             <!-- Weergave van zonlichtdata in een grafiek -->
@@ -74,7 +88,7 @@
             <section class="parent-table">
               <!-- Verschillende tabellen voor gedetailleerde informatie -->
               <table class="kas-table-1">
-                 <!-- Rijen met specifieke kas informatie, zoals aantal geplante en geoogste planten -->
+                <!-- Rijen met specifieke kas informatie, zoals aantal geplante en geoogste planten -->
                 <tr>
                   <td>Aantal geplant:</td>
                   <td id="totale_planten">Loading...</td>
@@ -89,7 +103,7 @@
                 </tr>
               </table>
               <table class="kas-table-2">
-                 <!-- Rijen met klimaat- en bodemcondities -->
+                <!-- Rijen met klimaat- en bodemcondities -->
                 <tr>
                   <td>Warmste Maand:</td>
                   <td>n.v.t.</td>

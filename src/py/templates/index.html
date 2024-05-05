@@ -1,84 +1,113 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="De pagina voor de verschillende sensoren" />
-    <meta name="author" content="B. Diker, A. Oomen, J. Doekhi, R. van Putten, M. Çifçi" />
-    <meta name="keywords" content="Homepage / Dashboard / Algoritme / Voeding / Planten / Data / Kas" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="De pagina voor de verschillende sensoren"
+    />
+    <meta
+      name="author"
+      content="B. Diker, A. Oomen, J. Doekhi, R. van Putten, M. Çifçi"
+    />
+    <meta
+      name="keywords"
+      content="Homepage / Dashboard / Algoritme / Voeding / Planten / Data / Kas"
+    />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css" />
     <script src="../static/js/main.js" defer></script>
     <script src="../static/js/planten.class.js"></script>
     <script src="../static/js/homepage.js" defer></script>
-</head>
-<body>
-  <section class="mainContainer">
-      <article id="loading-screen">
-  <article class="loader"></article>
-  </article>
-    <div class="pagina-container">
-      <div class="close-button" onclick="closeApplication()">&times;</div>
-    </div>
-    <article>
-      <a href="index.html">
-        <img src="../static/images/logo.png" class="goodgarden-logo">
-      </a>
+  </head>
+  <body>
+    <article id="loading-screen">
+      <article class="loader"></article>
     </article>
-    <section class="mainBorder">
-      <section class="content">
-        <section class="kant-links">
-              <table id="planten">
-                
-              </table>
-              <div class="formulier">
-                <div id="myModal" class="modal" style="display: none;">
-                  <article class="modal-binnen">
-                    <h1 id="plant-id">Plant Toevoegen</h1>
-                    <span class="close">&times;</span>
-                    <form action="http://localhost:3000/submit-form" method="post" onsubmit="return addplant()">
-                      <section class="inputvelden">
-                        <article>
-                          <label for="plantNaam">Naam van de plant</label>
-                          <input type="text" name="plant_naam" id="plantNaam">
-                        </article>
-                        <article>
-                          <label for="plantensoort">Soort van de plant</label>
-                          <input type="text" name="plantensoort" id="plantensoort">
-                        </article>
-                      </section>
-                          <h2>Plant aanwezig in kas</h2>
-                          <section class="radio-group">
-                            <article class="radio-single">
-                              <input type="radio" name="plant_geteelt" id="aanwezig" value="true">
-                              <label for="aanwezig">Ja</label>
-                            </article>
-                            <article class="radio-single">
-                              <input type="radio" name="plant_geteelt" id="afwezig" value="false">
-                              <label for="afwezig">Nee</label>
-                            </article>
-                          </section>
+    <article class="nav-menu">
+      <div class="pagina-container">
+        <div class="close-button" onclick="closeApplication()">&times;</div>
+      </div>
+    </article>
+    <section class="mainContainer">
+      <section class="mainBorder">
+        <section class="content">
+          <section class="kant-links">
+            <table id="planten"></table>
+            <div class="formulier">
+              <div id="myModal" class="modal" style="display: none">
+                <article class="modal-binnen">
+                  <h1 id="plant-id">Plant Toevoegen</h1>
+                  <span class="close">&times;</span>
+                  <form
+                    action="http://localhost:3000/submit-form"
+                    method="post"
+                    onsubmit="return addplant()"
+                  >
+                    <section class="inputvelden">
+                      <article>
+                        <label for="plantNaam">Naam van de plant</label>
+                        <input type="text" name="plant_naam" id="plantNaam" />
+                      </article>
+                      <article>
+                        <label for="plantensoort">Soort van de plant</label>
+                        <input
+                          type="text"
+                          name="plantensoort"
+                          id="plantensoort"
+                        />
+                      </article>
+                    </section>
+                    <h2>Plant aanwezig in kas</h2>
+                    <section class="radio-group">
+                      <article class="radio-single">
+                        <input
+                          type="radio"
+                          name="plant_geteelt"
+                          id="aanwezig"
+                          value="true"
+                        />
+                        <label for="aanwezig">Ja</label>
+                      </article>
+                      <article class="radio-single">
+                        <input
+                          type="radio"
+                          name="plant_geteelt"
+                          id="afwezig"
+                          value="false"
+                        />
+                        <label for="afwezig">Nee</label>
+                      </article>
+                    </section>
+                    <label for="ontvangenMeldingen">Meldingen ontvangen</label>
 
-
-                          <!-- <label for="ontvangenMeldingen">Meldingen ontvangen</label>
-                          
-                          <select name="ontvangen_meldingen">
-                              <option value="true">Ja</option>
-                              <option value="false">Nee</option>
-                          </select> -->
-
-                          <section class="knop-container">
-                              <button class="annulatie-knop" type="button" onclick="closeOverlay()">Annuleren</button>
-                              <input class="submit-plant" type="submit" value="Submit">
-                          </section>
-                    </form>
-                  </article>
-                </div>
+                    <select name="ontvangen_meldingen">
+                      <option value="true">Ja</option>
+                      <option value="false">Nee</option>
+                    </select>
+                    <section class="knop-container">
+                      <button
+                        class="annulatie-knop"
+                        type="button"
+                        onclick="closeOverlay()"
+                      >
+                        Annuleren
+                      </button>
+                      <input
+                        class="submit-plant"
+                        type="submit"
+                        value="Submit"
+                      />
+                    </section>
+                  </form>
+                </article>
+              </div>
             </div>
             <div id="overlay" onclick="closeOverlay"></div>
           </section>
+          <!-- Sectie voor sensorinformatie -->
           <section class="kant-rechts">
-            <!-- Sectie voor sensorinformatie -->
             <section id="sectie-1">
               <article class="parent-algemeen-overzicht">
                 <article class="algemeen-overzicht">
@@ -107,7 +136,7 @@
               <!-- Container voor algemene overzichtinformatie -->
               <article class="parent-algemeen-overzicht">
                 <article class="algemeen-overzicht">
-                    <!-- Link naar pagina met meer details over de sensoren -->
+                  <!-- Link naar pagina met meer details over de sensoren -->
                   <a href="./sensor.html" id="sensor-1">
                     <!-- Tabel met sensorinformatie -->
                     <table class="table-informatie-kas">
@@ -120,7 +149,11 @@
                         <td id="voltage-322"></td>
                       </tr>
                       <tr class="tr-informatie-kas">
-                        <img id="battery-image-322" src="../static/images/warning-logo.png" alt="">
+                        <img
+                          id="battery-image-322"
+                          src="../static/images/warning-logo.png"
+                          alt=""
+                        />
                         <td>Batterijvoltage:</td>
                         <td id="tevredenheid-322"></td>
                       </tr>
@@ -145,7 +178,11 @@
                         <td id="voltage-256"></td>
                       </tr>
                       <tr class="tr-informatie-kas">
-                        <img id="battery-image-256" src="../static/images/warning-logo.png" alt="">
+                        <img
+                          id="battery-image-256"
+                          src="../static/images/warning-logo.png"
+                          alt=""
+                        />
                         <td>Batterijvoltage:</td>
                         <td id="tevredenheid-256"></td>
                       </tr>
@@ -162,6 +199,5 @@
         </section>
       </section>
     </section>
-  </section>
-</body>
+  </body>
 </html>

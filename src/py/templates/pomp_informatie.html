@@ -4,26 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Een pagina speciaal voor de pomp!" />
-    <meta name="author" content="B. Diker, A. Oomen, J. Doekhi, R. van Putten, M. Çifçi" />
-    <meta name="keywords" content="Pomp / Algoritme / Voeding / Planten / Data / Kas" />
+    <meta
+      name="author"
+      content="B. Diker, A. Oomen, J. Doekhi, R. van Putten, M. Çifçi"
+    />
+    <meta
+      name="keywords"
+      content="Pomp / Algoritme / Voeding / Planten / Data / Kas"
+    />
     <link rel="stylesheet" href="../static/css/style.css" />
     <script src="../static/js/main.js" defer></script>
     <script src="../static/js/waterGrafiek.js" defer></script>
     <title>Informatie Pomp</title>
   </head>
   <body>
+    <article class="nav-menu">
+      <div class="pagina-container">
+        <div class="close-button" onclick="closeApplication()">&times;</div>
+      </div>
+      <div class="container">
+        <a href="index.html" class="back-button">&#8592;</a>
+      </div>
+    </article>
     <section class="mainContainer">
-      <article>
-        <div class="pagina-container">
-          <div class="close-button" onclick="closeApplication()">&times;</div>
-        </div>
-        <div class="container">
-          <a href="index.html" class="back-button">&#8592;</a>
-        </div>
-        <a href="index.html">
-          <img src="../static/images/logo.png" class="goodgarden-logo">
-        </a>
-      </article>
       <!-- De container die de inhoud van de informatiepagina bevat -->
       <section class="mainBorder informatie-kas-main-container">
         <article>
@@ -33,23 +36,23 @@
             <!-- Weergave van sensor data en kascondities -->
             <article class="parent-algemeen-overzicht">
               <article class="algemeen-overzicht">
-                 <!-- Tabel voor het weergeven van sensorgegevens -->
+                <!-- Tabel voor het weergeven van sensorgegevens -->
                 <table class="table-informatie-kas">
                   <tr class="tr-informatie-kas">
-                      <td>Pomp Status:</td>
-                      <td id="deviceNumber">Uitstekend!</td>
+                    <td>Pomp Status:</td>
+                    <td id="deviceNumber">Uitstekend!</td>
                   </tr>
                   <tr class="tr-informatie-kas">
-                      <td>Waterverbruik:</td>
-                      <td id="voltage">0.5 L/u</td>
+                    <td>Waterverbruik:</td>
+                    <td id="voltage">0.5 L/u</td>
                   </tr>
                   <tr class="tr-informatie-kas">
-                      <td>Volgende Irrigatie</td>
-                      <td id="time">24:00</td>
+                    <td>Volgende Irrigatie</td>
+                    <td id="time">24:00</td>
                   </tr>
                   <tr class="tr-informatie-kas">
-                      <td>Laatste Irrigatie:</td>
-                      <td id="zulu">18:00</td>
+                    <td>Laatste Irrigatie:</td>
+                    <td id="zulu">18:00</td>
                   </tr>
                 </table>
               </article>
@@ -74,7 +77,7 @@
             <section class="parent-table">
               <!-- Verschillende tabellen voor gedetailleerde informatie -->
               <table class="kas-table-1">
-                 <!-- Rijen met specifieke kas informatie, zoals aantal geplante en geoogste planten -->
+                <!-- Rijen met specifieke kas informatie, zoals aantal geplante en geoogste planten -->
                 <tr>
                   <td>Aantal geplant:</td>
                   <td id="totale_planten">Loading...</td>
@@ -89,7 +92,7 @@
                 </tr>
               </table>
               <table class="kas-table-2">
-                 <!-- Rijen met klimaat- en bodemcondities -->
+                <!-- Rijen met klimaat- en bodemcondities -->
                 <tr>
                   <td>Warmste Maand:</td>
                   <td>n.v.t.</td>

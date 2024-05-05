@@ -3,4 +3,5 @@ __pycache__/
 venv/
 .vscode/
 
-/src/py/script/json/plants.json
+plants.json
+plant_1.json

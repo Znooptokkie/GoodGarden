@@ -70,21 +70,27 @@ body
   align-items: center;
   height: 100vh;
   margin: 0;
+  position: relative;
 
   .mainContainer 
   {
-    width: 85vw;
-    height: 38rem;
+    // width: 90vw;
+    width: 89%;
+    // height: 45rem;
+    height: 89%;
     background-color: rgb(255, 255, 255, 85%);
     border-radius: 40px;
-    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 2rem;
 
     .goodgarden-logo 
     {
       position: absolute;
       width: 10vw;
       left: 50%;
-      top: 4.1rem;
+      top: 4rem;
       transform: translateX(-50%);
     }
 
@@ -96,9 +102,11 @@ body
 
     .mainBorder 
     {
-      padding: 1.25rem 1.5rem;
-      padding: 1rem 0;
-      height: 35rem;
+      // padding: 1.25rem 1.5rem;
+      // padding: 1rem 0;
+      // height: 35rem;
+      width: 95%;
+      height: 92%;
       border: solid 5px $primary-color;
       border-radius: 40px;
 
@@ -370,7 +378,7 @@ body
   background: white;
   padding: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 27.5vw;
+  width: 20vw;
   height: auto;
   // border: solid 2px #abd3ae;
   border-radius: 5px;
@@ -613,43 +621,52 @@ input:checked + .slider:before {
   position: relative;
   align-items: end;
 }
-
-.close-button 
+.nav-menu 
 {
   position: absolute;
-  top: -90px;
-  right: -35px;
-  transform: translate(100%, 0%);
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  color: $primary-color;
-  border-radius: 50%; /* Aangepast voor perfecte cirkel */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 50px;
-  border: solid $primary-color 2px;
-  font-weight: bold;
-}
+  top: 5px;
+  right: 60px;
+  .close-button 
+  {
+    position: absolute;
+    // top: -90px;
+    top: 0;
+    // right: -35px;
+    right: 0;
+    transform: translate(100%, 0%);
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: $primary-color;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 50px;
+    border: solid $primary-color 2px;
+    font-weight: bold;
+  }
 
-.back-button {
-  position: absolute;
-  top: -90px;
-  right: -25px;
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  color: $primary-color;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 35px;
-  border: solid $primary-color 2px;
-  font-weight: bold;
+  .back-button {
+    position: absolute;
+    // top: -90px;
+    top: 0;
+    // right: -25px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: $primary-color;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 35px;
+    border: solid $primary-color 2px;
+    font-weight: bold;
+  }
 }
 
 .back-button:hover {
