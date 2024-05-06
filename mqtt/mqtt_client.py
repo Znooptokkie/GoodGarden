@@ -24,7 +24,7 @@ def create_client(client_id, on_connect, on_message, broker="localhost", port=18
         mqtt.Client: Een geconfigureerde MQTT-clientobject.
     """
     # Initialiseert een MQTT-client met de opgegeven client_id.
-    client = mqtt.Client(client_id)
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, client_id)
     
     # Stelt de callback functies in voor connect- en message-events.
     client.on_connect = on_connect
