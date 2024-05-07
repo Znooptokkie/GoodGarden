@@ -74,25 +74,13 @@ body
 
   .mainContainer 
   {
-    // width: 90vw;
     width: 89%;
-    // height: 45rem;
     height: 89%;
     background-color: rgb(255, 255, 255, 85%);
     border-radius: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // padding: 2rem;
-
-    .goodgarden-logo 
-    {
-      position: absolute;
-      width: 10vw;
-      left: 50%;
-      top: 4rem;
-      transform: translateX(-50%);
-    }
 
     .informatie-kas-main-container 
     {
@@ -102,9 +90,6 @@ body
 
     .mainBorder 
     {
-      // padding: 1.25rem 1.5rem;
-      // padding: 1rem 0;
-      // height: 35rem;
       width: 95%;
       height: 92%;
       border: solid 5px $primary-color;
@@ -368,7 +353,8 @@ body
   margin: 0 auto;
 }
 
-.modal {
+.modal 
+{
   display: none;
   position: fixed;
   z-index: 999;
@@ -382,160 +368,153 @@ body
   height: auto;
   // border: solid 2px #abd3ae;
   border-radius: 5px;
-}
 
-.modal h1
-{
-  margin-bottom: 1rem;
-}
+  .modal-binnen
+  {
+    border: solid 2px $primary-color;
+    position: relative;
+    padding: 1rem;
+    border-radius: 25px;
 
-.modal-binnen
-{
-  border: solid 2px $primary-color;
-  position: relative;
-  padding: 1rem;
-  border-radius: 25px;
-}
+    h1
+    {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
 
-.modal #plant-id
-{
-  font-size: 1.5rem;
-}
+    .close 
+    {
+      color: #aaa;
+      position: absolute;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: -35px;
+      right: 15px;
+      top: 45px;
 
-.modal .close {
-  color: #aaa;
-  position: absolute;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: -35px;
-  right: 15px;
-  top: 45px;
-}
+      &:hover,
+      &:active
+      {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
 
-.modal .close:hover,
-.modal .close:active {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+    form
+    {
+      .inputvelden 
+      {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-#myModal form .inputvelden 
-{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-}
+      h2
+      {
+        font-family: $font-text;
+        font-weight: 400;
+        font-size: 1rem;
+      }
 
-#myModal h2
-{
-  font-family: $font-text;
-  font-weight: 400;
-  font-size: 1rem;
-}
+      select,
+      input 
+      {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid #abd3ae;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
 
-#myModal select,
-#myModal input {
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 2px solid #abd3ae;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
+      button 
+      {
+        width: 48%;
+        padding: 10px;
+        box-sizing: border-box;
+        // height: 40px;
+      }
 
-#myModal .knop {
-  display: flex;
-  justify-content: space-between;
-}
+      .knop-container 
+      {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
 
-#myModal button {
-  width: 48%;
-  padding: 10px;
-  box-sizing: border-box;
-  // height: 40px;
-}
+        input,
+        button {
+          flex: 1;
+          margin: 0 5px;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+      }
 
-#myModal .knop-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
+      input[type="text"],
+      select 
+      {
+        border: 2px solid #abd3ae;
+        padding: 10px;
+        border-radius: 17px;
+        box-sizing: border-box;
+      }
 
-#myModal .knop-container input,
-#myModal .knop-container button {
-  flex: 1;
-  margin: 0 5px;
-  padding: 10px;
-  box-sizing: border-box;
-}
+      .radio-group 
+      {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        // margin-left: 1rem;
+        // gap: 5px; /* Pas de afstand aan tussen de elementen */
 
-#myModal input[type="text"],
-#myModal select {
-  border: 2px solid #abd3ae;
-  padding: 10px;
-  border-radius: 17px;
-  box-sizing: border-box;
-}
+        input[type="radio"] 
+        {
+          margin-right: 5px; /* Kleine ruimte tussen de radio button en de label */
+        }
+      }
 
-.radio-group 
-{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    // margin-left: 1rem;
-    // gap: 5px; /* Pas de afstand aan tussen de elementen */
-}
+      .radio-single
+      {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: center;
 
-.radio-group input[type="radio"] 
-{
-    margin-right: 5px; /* Kleine ruimte tussen de radio button en de label */
-}
+        input
+        {
+          transform: translateY(50%);
+        }
+      }
 
-.radio-single
-{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  // justify-content: center;
+      input[type="submit"],
+      button {
+        // color: #fff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        color: $font-titels;
+      }
 
-}
+      input[type="submit"] {
+        background-color: $primary-color;
+        font-family: $font-titels;
+        font-size: 1rem;
+      }
 
-.radio-single input
-{
-  transform: translateY(50%);
-}
+      button {
+        // background-color: white;
+        color: white;
+        font-family: $font-titels;
+        font-size: 1rem;
+      }
 
-#myModal input[type="submit"],
-#myModal button {
-  // color: #fff;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  color: $font-titels;
-}
-
-#myModal input[type="submit"] {
-  background-color: $primary-color;
-  font-family: $font-titels;
-  font-size: 1rem;
-}
-
-#myModal button {
-  // background-color: white;
-  color: white;
-  font-family: $font-titels;
-  font-size: 1rem;
-}
-
-.toevoeging {
-  // background: linear-gradient(45deg, #abd3ae, #2ecc71);
-  
-}
-
-.annulatie-knop {
-  background-color: $titel-color;
+      .annulatie-knop {
+        background-color: $titel-color;
+      }
+    }
+  }
 }
 
 .switch-container {

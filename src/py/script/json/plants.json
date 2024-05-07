@@ -4,5 +4,47 @@
         "plant_naam": "Tomatenplant",
         "plantensoort": "Groente",
         "plant_geteelt": 1
+    },
+    {
+        "id": 2,
+        "plant_naam": "c",
+        "plantensoort": "c",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 3,
+        "plant_naam": "l",
+        "plantensoort": "l",
+        "plant_geteelt": 0
+    },
+    {
+        "id": 4,
+        "plant_naam": "w",
+        "plantensoort": "w",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 5,
+        "plant_naam": "a",
+        "plantensoort": "a",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 6,
+        "plant_naam": "w",
+        "plantensoort": "w",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 7,
+        "plant_naam": "f",
+        "plantensoort": "f",
+        "plant_geteelt": 1
+    },
+    {
+        "id": 8,
+        "plant_naam": "9",
+        "plantensoort": "9",
+        "plant_geteelt": 1
     }
 ]

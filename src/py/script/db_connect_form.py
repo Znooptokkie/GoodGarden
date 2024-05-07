@@ -2,6 +2,8 @@ import sys
 import json
 
 from db_connect import database_connect
+from planten import fetch_plant_and_write_to_json
+
 from mysql.connector import Error
 
 # Voeg de data uit het formulier toe aan de database
@@ -29,6 +31,7 @@ def insert_plant_name(plant_naam, plantensoort, plant_geteelt):
         if connection and connection.is_connected():
             cursor.close()
             connection.close()
+            fetch_plant_and_write_to_json()
         
 # Wordt alleen uitgevoerd als het een standalone script is (geen import!!!) 
 if __name__ == "__main__":
