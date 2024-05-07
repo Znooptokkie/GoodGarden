@@ -1,9 +1,7 @@
 function getPlantId() {
-    // Get the current URL
     const url = window.location.href;
     console.log("Current URL:", url);
 
-    // Extract the query parameter 'id' from the URL
     const urlParams = new URL(url);
     const plantId = urlParams.searchParams.get('id');
     console.log("Plant ID:", plantId);
@@ -11,12 +9,10 @@ function getPlantId() {
     return plantId;
 }
 
-// JavaScript code to update plant cultivation status
 function updatePlant(event) {
-    const plantId = event.target.dataset.plantId; // Get plant ID from data attribute
-    const isChecked = event.target.checked ? 1 : 0; // 1 for cultivated, 0 for not cultivated
+    const plantId = event.target.dataset.plantId;
+    const isChecked = event.target.checked ? 1 : 0;
     
-    // Send POST request to Flask backend to update plant cultivation status
     fetch(`/update_plant_geteelt/${plantId}`, {
         method: 'POST',
         headers: {
@@ -35,10 +31,7 @@ function updatePlant(event) {
     });
 }
 
-
-// Function to update the plant status in the database
 function updatePlantInDatabase(plantId, plant_geteelt) {
-    // Make a POST request to update the database with the new value
     fetch(`http://localhost:5000/update_plant_geteelt/${plantId}`, {
         method: 'POST',
         headers: {
@@ -57,10 +50,7 @@ function updatePlantInDatabase(plantId, plant_geteelt) {
     });
 }
 
-
-// Function to handle switch change event
 function handleSwitchChange(event) {
-    // Get the plant ID from the URL
     const plantId = getPlantId();
     console.log("Plant ID:", plantId);  
     if (!plantId) {
@@ -68,31 +58,23 @@ function handleSwitchChange(event) {
         return;
     }
 
-    // Get the new value of the switch
     const isChecked = event.target.checked;
 
-    // Determine the value to be sent based on the switch state
     const plant_geteelt = isChecked ? 1 : 0;
 
-    // Update the plant status in the database
     updatePlantInDatabase(plantId, plant_geteelt);
 }
 
-
-// Function to initialize the switch state based on the stored value
 function initializeSwitchState() {
-    // Get the plant ID from the URL
     const plantId = getPlantId();
     if (!plantId) {
         console.error('Plant ID is missing');
         return;
     }
 
-    // Fetch the stored value of plant_geteelt from the backend
     fetch(`http://localhost:5000/get_plant_geteelt/${plantId}`)
         .then(response => response.json())
         .then(data => {
-            // If a stored value exists, set the switch state accordingly
             const switchElement = document.getElementById('switch');
             if (switchElement && data.plant_geteelt !== undefined) {
                 switchElement.checked = data.plant_geteelt === 1;
@@ -103,9 +85,6 @@ function initializeSwitchState() {
         });
 }
 
-
-
-// Add event listener to handle switch change
 document.addEventListener('DOMContentLoaded', function () {
     initializeSwitchState();
 
