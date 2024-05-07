@@ -20,6 +20,7 @@
     "body-parser": "^1.20.2",
     "chart.js": "^4.4.2",
     "elctron": "^0.0.1-security",
+    "electron-reload": "^2.0.0-alpha.1",
     "express": "^4.19.2",
     "mysql2": "^3.9.1",
     "python-shell": "^5.0.0"
