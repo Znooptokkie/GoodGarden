@@ -41,13 +41,6 @@ body .mainContainer {
   justify-content: center;
   align-items: center;
 }
-body .mainContainer .goodgarden-logo {
-  position: absolute;
-  width: 10vw;
-  left: 50%;
-  top: 4rem;
-  transform: translateX(-50%);
-}
 body .mainContainer .informatie-kas-main-container {
   display: grid;
   grid-template-columns: 5fr 7fr;
@@ -244,23 +237,17 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   height: auto;
   border-radius: 5px;
 }
-
-.modal h1 {
-  margin-bottom: 1rem;
-}
-
-.modal-binnen {
+.modal .modal-binnen {
   border: solid 2px rgb(171, 211, 174);
   position: relative;
   padding: 1rem;
   border-radius: 25px;
 }
-
-.modal #plant-id {
+.modal .modal-binnen h1 {
+  margin-bottom: 1rem;
   font-size: 1.5rem;
 }
-
-.modal .close {
+.modal .modal-binnen .close {
   color: #aaa;
   position: absolute;
   font-size: 2rem;
@@ -269,29 +256,24 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   right: 15px;
   top: 45px;
 }
-
-.modal .close:hover,
-.modal .close:active {
+.modal .modal-binnen .close:hover, .modal .modal-binnen .close:active {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
-
-#myModal form .inputvelden {
+.modal .modal-binnen form .inputvelden {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-#myModal h2 {
+.modal .modal-binnen form h2 {
   font-family: "Afacad", sans-serif;
   font-weight: 400;
   font-size: 1rem;
 }
-
-#myModal select,
-#myModal input {
+.modal .modal-binnen form select,
+.modal .modal-binnen form input {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 15px;
@@ -299,81 +281,64 @@ body .mainContainer .mainBorder .grid-column-2 .grid-2-child .parent-table .kas-
   border-radius: 5px;
   box-sizing: border-box;
 }
-
-#myModal .knop {
-  display: flex;
-  justify-content: space-between;
-}
-
-#myModal button {
+.modal .modal-binnen form button {
   width: 48%;
   padding: 10px;
   box-sizing: border-box;
 }
-
-#myModal .knop-container {
+.modal .modal-binnen form .knop-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
-
-#myModal .knop-container input,
-#myModal .knop-container button {
+.modal .modal-binnen form .knop-container input,
+.modal .modal-binnen form .knop-container button {
   flex: 1;
   margin: 0 5px;
   padding: 10px;
   box-sizing: border-box;
 }
-
-#myModal input[type=text],
-#myModal select {
+.modal .modal-binnen form input[type=text],
+.modal .modal-binnen form select {
   border: 2px solid #abd3ae;
   padding: 10px;
   border-radius: 17px;
   box-sizing: border-box;
 }
-
-.radio-group {
+.modal .modal-binnen form .radio-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
-.radio-group input[type=radio] {
+.modal .modal-binnen form .radio-group input[type=radio] {
   margin-right: 5px; /* Kleine ruimte tussen de radio button en de label */
 }
-
-.radio-single {
+.modal .modal-binnen form .radio-single {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-
-.radio-single input {
+.modal .modal-binnen form .radio-single input {
   transform: translateY(50%);
 }
-
-#myModal input[type=submit],
-#myModal button {
+.modal .modal-binnen form input[type=submit],
+.modal .modal-binnen form button {
   border: none;
   border-radius: 50px;
   cursor: pointer;
   color: "Akaya Kanadaka", system-ui;
 }
-
-#myModal input[type=submit] {
+.modal .modal-binnen form input[type=submit] {
   background-color: rgb(171, 211, 174);
   font-family: "Akaya Kanadaka", system-ui;
   font-size: 1rem;
 }
-
-#myModal button {
+.modal .modal-binnen form button {
   color: white;
   font-family: "Akaya Kanadaka", system-ui;
   font-size: 1rem;
 }
-
-.annulatie-knop {
+.modal .modal-binnen form .annulatie-knop {
   background-color: rgb(46, 86, 81);
 }
 
