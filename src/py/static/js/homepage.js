@@ -1,39 +1,44 @@
-
-const { ipcRenderer } = require("electron");
-
 /**
  * Functie om een modaal venster te openen.
  * Deze functie stelt event listeners in voor het openen en sluiten van de modaal.
  */
-function openModal() {
+function openModal(side) 
+{
     const modal = document.getElementById("myModal");
-    const button = document.getElementById("modalButton");
-    const closeButton = document.getElementsByClassName("annulatie-knop")[0];
-    const close = document.getElementsByClassName("close")[0];
-    const submit = document.getElementsByClassName("submit-plant")[0];
+    const leftRadio = document.getElementById("kas_locatie_left");
+    const rightRadio = document.getElementById("kas_locatie_right");
+    const closeButton = document.querySelector(".annulatie-knop");
+    const close = document.querySelector(".close");
+    const submit = document.querySelector(".submit-plant");
+
+    console.log("Modal opened for side:", side);
+    console.log("Left radio element:", leftRadio);
+    console.log("Right radio element:", rightRadio);
+
+    if (side === "left") {
+        leftRadio.checked = true;
+    } else if (side === "right") {
+        rightRadio.checked = true;
+    }
 
     modal.style.display = "block";
 
-    if (modal && button) 
+    closeButton.onclick = close.onclick = function () 
+    {
+        modal.style.display = "none";
+    };
+
+    submit.onclick = function () 
+    {
+        alert("Plant toegevoegd");
+        modal.style.display = "none";
+    };
+
+    window.onclick = function (event) 
+    {
+        if (event.target === modal) 
         {
-            close.onclick = closeButton.onclick = function () 
-            {
-                modal.style.display = "none";
-            };
-
-            submit.onclick = function () 
-            {
-                // ipcRenderer.send("reload-request");
-                alert("Plant toegevoegd");
-                modal.style.display = "none";
-            };
-
-            window.onclick = function (event) 
-            {
-                if (event.target === modal) 
-                {
-                    modal.style.display = "none";
-                }
-            };
-    }
+            modal.style.display = "none";
+        }
+    };
 }

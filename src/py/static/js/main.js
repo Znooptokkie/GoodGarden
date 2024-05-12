@@ -1,4 +1,3 @@
-// Importeer Axios voor het maken van HTTP-verzoeken
 const axios = require('axios');
 
 function closeApplication() 
@@ -13,9 +12,8 @@ function closeApplication()
 //---LAADSCHERM---
 document.addEventListener('DOMContentLoaded', function() {
     showLoadingScreen(); 
-    fetchBatteryData();
+    // fetchBatteryData();
       startTimer();
-    //   console.log("GELUKTWFE");
 });
 
 function showLoadingScreen() {
@@ -26,27 +24,27 @@ function hideLoadingScreen() {
     document.getElementById('loading-screen').style.display = 'none';
 }
 
-function fetchBatteryData() {
-    // Voer een GET-verzoek uit naar de server om batterijdata op te halen.
-    axios.get('http://127.0.0.1:5000/')
-        .then(response => 
-        {
-            const batteryData = response.data;
-            updateBatteryData(batteryData);
-        })
-        .catch(error => 
-        {
-            console.error('Error fetching all data:', error);
-            hideLoadingScreen();
-        });
-}
+// function fetchBatteryData() {
+//     // Voer een GET-verzoek uit naar de server om batterijdata op te halen.
+//     axios.get('http://127.0.0.1:5000/')
+//         .then(response => 
+//         {
+//             const batteryData = response.data;
+//             updateBatteryData(batteryData);
+//         })
+//         .catch(error => 
+//         {
+//             console.error('Error fetching all data:', error);
+//             hideLoadingScreen();
+//         });
+// }
+
 function startTimer() {
     setTimeout(hideLoadingScreen, 100); // Verberg laadscherm na 1 seconden
 }
 
 function fetchPlantenData()
 {
-    // Gebruik Axios om een GET-verzoek te versturen naar de planten endpoint.
     axios.get('http://127.0.0.1:5000/planten')
     .then(response => 
     {
@@ -69,7 +67,7 @@ function getPlantIdFromUrl()
 function updatePlantenData(plantenData) 
 {
     const plantId = parseInt(getPlantIdFromUrl(), 10);
-    const gevondenPlant = plantenData.find(plant => plant.id === plantId);
+    const gevondenPlant = plantenData.find(plant => plant.planten_id === plantId);
 
     if (gevondenPlant) 
     {

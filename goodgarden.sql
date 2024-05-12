@@ -3,110 +3,21 @@ CREATE DATABASE goodgarden;
 
 USE goodgarden;
 
--- BETTERY VOLTAGE EVENTS
-
-CREATE TABLE `battery_voltage_events` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) DEFAULT NULL,
-  `gateway_receive_time` varchar(50) DEFAULT NULL,
-  `device` int(11) DEFAULT NULL,
-  `value` decimal(10,5) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
-INSERT INTO `battery_voltage_events` (`timestamp`, `gateway_receive_time`, `device`, `value`) VALUES
-(1710839863, '2024-03-19T09:17:43Z', 256, 4.03663),
-(1710842346, '2024-03-19T09:59:06Z', 322, 4.08547);
-
-ALTER TABLE `battery_voltage_events`
-  ADD UNIQUE KEY `timestamp` (`timestamp`),
-  ADD UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`);
-
--- CARE SCHEDULES
-
-CREATE TABLE `care_schedules` (
-  `plant_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `water` int(11) DEFAULT NULL,
-  `bemesting` int(11) DEFAULT NULL,
-  PRIMARY KEY (`plant_id`)
-);
-
-INSERT INTO `care_schedules` (`plant_id`, `water`, `bemesting`) VALUES
-(1, 2, 15),
-(2, 3, 10),
-(3, 2, 10),
-(4, 2, 15),
-(5, 2, 15),
-(6, 3, 15),
-(7, 3, 10),
-(8, 2, 15),
-(9, 2, 10),
-(10, 2, 10),
-(11, 2, 15),
-(12, 3, 15),
-(13, 2, 10),
-(14, 3, 15),
-(15, 2, 10);
-
--- DEVICES
-
-CREATE TABLE `devices` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `serial_number` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `label` varchar(255) DEFAULT NULL,
-  `last_seen` int(11) DEFAULT NULL,
-  `last_battery_voltage` float DEFAULT NULL,
-  `device_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `last_seen` (`last_seen`)
-  -- UNIQUE KEY `last_battery_voltage` (`last_battery_voltage`)
-);
-
-INSERT INTO `devices` (`serial_number`, `name`, `label`, `last_seen`, `last_battery_voltage`, `device_id`) VALUES
-('0033889B1BAB1169', 'firefly2_0051', 'The Field', 1712297000, 3.92796, 256),
-('006FE1FC316ED7D8', 'firefly2_0111', 'The Field', 1712297257, 4.07448, 322);
-
--- FETCH
-
-CREATE TABLE `fetch` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) DEFAULT NULL,
-  `gateway_receive_time` varchar(50) DEFAULT NULL,
-  `device` int(11) DEFAULT NULL,
-  `value` decimal(10,5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
-  -- UNIQUE KEY `value` (`value`)
-);
-
--- PAR_EVENTS
-
-CREATE TABLE `par_events` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) DEFAULT NULL,
-  `gateway_receive_time` varchar(50) DEFAULT NULL,
-  `device` int(11) DEFAULT NULL,
-  `value` decimal(10,5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
-  -- UNIQUE KEY `value` (`value`)
-);
-
 -- PLANTEN
 
 CREATE TABLE `planten` (
-  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `plant_naam` varchar(50) DEFAULT NULL,
+  `planten_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `plant_naam` varchar(50)  NOT NULL,
   `plantensoort` varchar(50) NOT NULL,
   `plant_geteelt` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
+  `kas_locatie` ENUM('LEFT', 'RIGHT') NOT NULL,
+  PRIMARY KEY (`planten_id`)
 );
 
-INSERT INTO `planten` (`id`, `plant_naam`, `plantensoort`, `plant_geteelt`) VALUES
-(1, 'Tomatenplant', 'Groente', 1);
+INSERT INTO `planten` (`planten_id`, `plant_naam`, `plantensoort`, `plant_geteelt`, `kas_locatie`) VALUES
+(1, 'Tomatenplant', 'Groente', 1, "LEFT"),
+(2, "Koriander", "Kruiden", 1, "LEFT"),
+(3, "Aardbei", "Fruit", 1, "RIGHT");
 
 -- PLANTS
 
@@ -137,58 +48,23 @@ INSERT INTO `plants` (`id`, `name`, `type`, `beschrijving`, `licht`, `vochtighei
 (14, 'Aubergine', 'Groente', 'Aubergine (Solanum melongena) is een soort in de nachtschadefamilie die wordt gekweekt om zijn eetbare vruchten.', 'Volle Zon', '85'),
 (15, 'Boerenkool', 'Groente', 'Boerenkool of bladkool (Brassica oleracea var. acephala) is een groenteplant met groene of paarse bladeren.', 'Gedeeltelijke Schaduw', '70');
 
--- RELATIVE HUMIDITY EVENTS
-
-CREATE TABLE `relative_humidity_events` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) DEFAULT NULL,
-  `gateway_receive_time` varchar(50) DEFAULT NULL,
-  `device` int(11) DEFAULT NULL,
-  `value` decimal(10,5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
-  -- UNIQUE KEY `value` (`value`)
+CREATE TABLE `oogsten`
+(
+  `oogst_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `plant_id` int(10) UNSIGNED DEFAULT NULL,
+  `datum` date,
+  `succesvol` boolean DEFAULT true,
+  PRIMARY KEY (`oogst_id`),
+  FOREIGN KEY (`plant_id`) REFERENCES `planten`(`planten_id`)
 );
 
--- SOIL ELECTRIC CONDUCTIVITY EVENTS
-
-CREATE TABLE `soil_electric_conductivity_events` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) DEFAULT NULL,
-  `gateway_receive_time` varchar(50) DEFAULT NULL,
-  `device` int(11) DEFAULT NULL,
-  `value` decimal(10,5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
-  -- UNIQUE KEY `value` (`value`)
-);
-
--- SOIL RELATIVE PERMITTIVITY EVENTS
-
-CREATE TABLE `soil_relative_permittivity_events` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) DEFAULT NULL,
-  `gateway_receive_time` varchar(50) DEFAULT NULL,
-  `device` int(11) DEFAULT NULL,
-  `value` decimal(10,5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
-  -- UNIQUE KEY `value` (`value`)
-);
-
--- SOIL TEMPERATURE EVENTS
-
-CREATE TABLE `soil_temperature_events` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) DEFAULT NULL,
-  `gateway_receive_time` varchar(50) DEFAULT NULL,
-  `device` int(11) DEFAULT NULL,
-  `value` decimal(10,5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `timestamp` (`timestamp`),
-  UNIQUE KEY `gateway_receive_time` (`gateway_receive_time`)
-  -- UNIQUE KEY `value` (`value`)
-);
+INSERT INTO `oogsten` (`plant_id`, `datum`, `succesvol`) 
+VALUES
+  (1, "2023-06-20", true),
+  (1, "2023-06-20", true),
+  (2, "2023-06-21", false),
+  (2, "2023-06-22", true),
+  (3, "2023-06-23", true),
+  (3, "2023-06-25", true),
+  (3, "2023-06-27", false),
+  (3, "2023-06-29", true);

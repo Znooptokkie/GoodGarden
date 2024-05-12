@@ -6,14 +6,15 @@ const path = require("path");
 
 const server = express();
 server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json()); // Zorg ervoor dat je JSON bodies correct kunt verwerken
 
 server.post("/submit-form", (req, res) => {
-    const { plant_naam, plantensoort } = req.body;
+    const { plant_naam, plantensoort, kas_locatie } = req.body; // Voeg kas_locatie toe aan de destructuring
     const plant_geteelt = req.body.plant_geteelt === "true" ? "true" : "false";
 
     let options = {
         mode: "text",
-        args: [plant_naam, plantensoort, plant_geteelt],
+        args: [plant_naam, plantensoort, plant_geteelt, kas_locatie], // Voeg kas_locatie toe aan de argumenten
     };
 
     PythonShell.run("src/py/script/db_connect_form.py", options, (err, results) => {
@@ -26,6 +27,7 @@ server.post("/submit-form", (req, res) => {
         }
     });
 });
+
 
 const PORT = 3000;
 server.listen(PORT, () => {

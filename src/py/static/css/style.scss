@@ -23,7 +23,7 @@ $font-text: "Afacad", sans-serif;
 
 @mixin box-shadow 
 {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
 }
 
 @mixin border-radius 
@@ -74,6 +74,12 @@ body
 
   .mainContainer 
   {
+    background-image: url("../images/achtergrond_logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+
+    // border: solid 3px rgb(171, 211, 174);
     width: 89%;
     height: 89%;
     background-color: rgb(255, 255, 255, 85%);
@@ -82,17 +88,10 @@ body
     justify-content: center;
     align-items: center;
 
-    .informatie-kas-main-container 
-    {
-      display: grid;
-      grid-template-columns: 5fr 7fr;
-    }
-
     .mainBorder 
     {
       width: 95%;
       height: 92%;
-      border: solid 5px $primary-color;
       border-radius: 40px;
 
       .pagina-titel 
@@ -100,241 +99,262 @@ body
         font-size: 2rem;
         margin-left: 1.5rem;
         margin-bottom: 1rem;
+
       }
-
-      #sectie-1 
-      {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 0 2.5rem 0 1rem;
-        position: relative;
-
-        h1 
-        {
-          background-color: green;
-        }
-
-        .parent-algemeen-overzicht 
-        {
-          @include box-shadow;
-          @include border-radius;
-          padding: 1rem;
-          // margin-top: 1rem;
-          background-color: white;
-
-          .algemeen-overzicht 
-          {
-            @include groene-border;
-            @include inner-border-radius;
-            font-size: 1.25rem;
-            padding: 0.5rem 1rem;
-
-            .table-informatie-kas 
-            {
-              width: 100%;
-
-              .tr-informatie-kas 
-              {
-                display: flex;
-                justify-content: space-between;
-                text-align: left;
-              }
-            }
-          }
-        }
-
-        .grafiek 
-        {
-          @include box-shadow;
-          @include border-radius;
-          padding: 1rem;
-          position: relative;
-          background-color: white;
-
-          .grafiek-innerbox 
-          {
-            @include groene-border;
-            @include inner-border-radius;
-            font-size: 1.25rem;
-            padding: 0 1rem 2.5rem;
-            height: 225px;
-            position: relative;
-
-            h2 
-            {
-              position: absolute;
-              left: 50%;
-              transform: translateX(-50%);
-            }
-
-            canvas 
-            {
-              // Zorgt ervoor dat de grafiek precies in eht midden komt
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-          }
-        }
-      }
-
-      .content 
+      .content
       {
         display: grid;
-        grid-template-columns: 3fr 1fr 3fr;
-        height: 100%;
-
+        grid-template-columns: 6fr 6fr;
+        height: 91%;
+        padding: .75rem;
+        
         .kant 
         {
           &-links 
           {
-            grid-column: 1;
-
-            #planten 
-            {
-              width: 100%;
-              border-collapse: collapse;
-
-              td 
-              {
-                article 
-                {
-                  height: 7rem;
-                  width: 10rem;
-                  padding: 0.6rem;
-                  margin: 0.1rem;
-                  margin-left: 2rem;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
-                  border: solid 3px $primary-color;
-                  border-radius: 40px;
-                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-                  #toevoegen 
-                  {
-                    height: 5rem;
-                    width: 5rem;
-                  }
-
-                  h2 
-                  {
-                    color: gray;
-                  }
-
-                  &:hover 
-                  {
-                    background-color: lightgray;
-                    cursor: pointer;
-                  }
-                }
-              }
-            }
-          }
-
-          &-rechts 
-          {
-            grid-column: 3;
-            // margin-right: 2rem;
-
-            #metingen 
-            {
-              border: solid 3px $primary-color;
-              border-radius: 40px;
-
-              #main-waardes 
-              {
-                display: flex;
-                justify-content: space-between;
-                padding: 0.5rem;
-                padding-bottom: 0;
-                width: 100%;
-
-                table 
-                {
-                  display: flex;
-                  justify-content: space-between;
-                  width: 100%;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      .grid-column-2 
-      {
-        @include box-shadow;
-        @include border-radius;
-        padding: 1rem;
-        margin: 3.25rem 1rem 1.25rem 1rem;
-        background-color: white;
-
-        .grid-2-child 
-        {
-          @include groene-border;
-          @include inner-border-radius;
-          height: 100%;
-
-          .parent-table 
-          {
-            padding: 1.5rem 2rem;
+            grid-column-start: 1;
+            align-items: center;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
-            gap: 2.5rem;
-            justify-content: space-around;
-            height: 90%;
+            justify-content: center;
 
-            table 
+            h1
             {
-              tr 
-              {
-                td 
-                {
-                  font-size: 1.05rem;
-                }
-              }
+              color: $titel-color;
+              font-weight: 400;
+              font-size: 2.5rem;
+              text-align: center;
+              margin-bottom: 1rem;
             }
 
-            .kas-table-1 
+            .plant-grid
             {
-              tr 
-              {
-                td 
-                {
-                  font-size: 1.25rem;
-                }
-              }
-            }
-
-            .kas-table-2 
-            {
+              display: flex;
+              flex-direction: row;
+              border-top: solid 3px rgb(171, 211, 174);
+              // border-width: 100%;
+              justify-content: center;
               position: relative;
+              gap: 3rem;
 
-              &::after,
-              &::before 
+              table
               {
-                content: "";
+                margin-top: 1.5rem;
+                width: 100%;
+                border-collapse: collapse; 
+
+                td, tr, th, tbody
+                {
+                  margin: 0;
+                  padding: 0;
+                }
+              }
+
+              
+              .vertical-line
+              {
                 position: absolute;
-                left: 0;
-                right: 0;
-                height: 1px;
-                width: 90%;
-                background: black;
+                left: 273px;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                height: 95%;
+                background-color: rgb(171, 211, 174);
               }
 
-              &::after 
+
+              .plant-container
               {
-                bottom: -20px;
+                @include box-shadow();
+                @include groene-border();
+                width: 240px;
+                height: 55px;
+                display: flex;
+                flex-direction: row;
+                border-radius: 10px;
+                
+                h2
+                {
+                  font-family: $font-text;
+                  color: gray;
+                  font-weight: 400;
+                }
+
+                img
+                {
+                  height: 5vh;
+                }
               }
 
-              &::before 
+              .add-button
               {
-                top: -20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+              }
+
+              .placeholder 
+              {
+                @include box-shadow();
+                @include groene-border;
+                height: 60px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 10px;
+                opacity: 50%;
+              }
+            }
+          }
+          &-rechts 
+          {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: 100%;
+
+            .rechts-article-1
+            {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+
+              .article-1
+              {
+
+                &-div-1
+                {
+                  @include flexbox-center;
+                  padding: 0;
+
+                  a
+                  {
+                    @include groene-border;
+                    @include box-shadow;
+                    border-radius: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    // background-color: white;
+                    background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
+                    width: 100%;
+                    margin-right: 1rem;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    color: $titel-color;
+
+                    h3
+                    {
+                      font-size: 2.5rem;
+                    }
+                  }
+                }
+
+                &-div-2
+                {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  grid-template-rows: repeat(2, 1fr);
+                  gap: 1rem;
+
+                  .knopje
+                  {
+                    @include groene-border;
+                    @include box-shadow;
+                    border-radius: 15px;
+                    display: flex;
+                    background-color: white;
+                    padding: .5rem;
+                    width: 150px;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 1.5rem;
+                    color: $titel-color;
+                  }
+
+                  .div-2
+                  {
+                    &-blok-1
+                    {
+                      display: flex;
+                      justify-content: flex-end;
+
+                    }
+                    &-blok-2
+                    {
+                      display: flex;
+                      justify-content: flex-end;
+                    }
+                    &-blok-3
+                    {
+                      display: flex;
+                      justify-content: flex-end;
+                    }
+                    &-blok-4
+                    {
+                      display: flex;
+                      justify-content: flex-end;
+                    }
+                  }
+                }
+              }
+            }
+
+            .rechts-article-2
+            {
+              height: 250px;
+
+              canvas
+              {
+
+              }
+
+              .grafiek
+              {
+                @include box-shadow;
+                border-radius: 10px;
+                background-color: white;
+                height: 100%;
+                border: solid 2px rgb(171, 211, 174);
+
+                .grafiek-innerbox
+                {
+                  border-radius: 35px;
+                  font-size: 1.25rem;
+                  padding: 1rem;
+                  height: 1px;  
+                  width: 100%;
+                  position: relative;
+                  
+                  #sensorCanvas
+                  {
+
+                  }
+                }
+              }
+            }
+
+            .rechts-article-3
+            {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              height: 200px;
+              width: 100%;
+              gap: 1rem;
+
+              .categorie-planten
+              {
+                @include groene-border;
+                @include box-shadow;
+                border-radius: 15px;
+                background-color: white;
+                padding: .5rem;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 1rem;
               }
             }
           }
@@ -366,7 +386,6 @@ body
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 20vw;
   height: auto;
-  // border: solid 2px #abd3ae;
   border-radius: 5px;
 
   .modal-binnen
@@ -434,7 +453,6 @@ body
         width: 48%;
         padding: 10px;
         box-sizing: border-box;
-        // height: 40px;
       }
 
       .knop-container 
@@ -466,12 +484,10 @@ body
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        // margin-left: 1rem;
-        // gap: 5px; /* Pas de afstand aan tussen de elementen */
 
         input[type="radio"] 
         {
-          margin-right: 5px; /* Kleine ruimte tussen de radio button en de label */
+          margin-right: 5px;
         }
       }
 
@@ -480,7 +496,6 @@ body
         display: flex;
         flex-direction: row;
         align-items: center;
-        // justify-content: center;
 
         input
         {
@@ -490,7 +505,6 @@ body
 
       input[type="submit"],
       button {
-        // color: #fff;
         border: none;
         border-radius: 50px;
         cursor: pointer;
@@ -499,49 +513,20 @@ body
 
       input[type="submit"] {
         background-color: $primary-color;
-        font-family: $font-titels;
         font-size: 1rem;
       }
 
       button {
-        // background-color: white;
         color: white;
         font-family: $font-titels;
         font-size: 1rem;
       }
 
-<<<<<<< HEAD
-#myModal input[type="submit"],
-#myModal button {
-  // color: #fff;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  color: $font-titels;
-}
-
-#myModal input[type="submit"] {
-  background-color: $primary-color;
-  font-family: $font-titels;
-  font-size: 1rem;
-}
-
-#myModal button {
-  // background-color: white;
-  color: white;
-  font-family: $font-titels;
-  font-size: 1rem;
-}
-
-.annulatie-knop {
-  background-color: $titel-color;
-=======
       .annulatie-knop {
         background-color: $titel-color;
       }
     }
   }
->>>>>>> atilla
 }
 
 .switch-container {
@@ -551,7 +536,7 @@ body
 }
  
 .switch-wrapper {
-  margin-left: 20vw; // slider aan rechterkant
+  margin-left: 20vw;
 }
  
 .switch {
@@ -619,8 +604,8 @@ input:checked + .slider:before {
 }
 
 .close-button:hover {
-  background-color: $primary-color; /* Aangepaste hover kleur */
-  color: white; /* Tekstkleur wit op hover voor betere zichtbaarheid */
+  background-color: $primary-color;
+  color: white;
 }
 
 .container {
@@ -635,9 +620,7 @@ input:checked + .slider:before {
   .close-button 
   {
     position: absolute;
-    // top: -90px;
     top: 0;
-    // right: -35px;
     right: 0;
     transform: translate(100%, 0%);
     width: 50px;
@@ -656,9 +639,7 @@ input:checked + .slider:before {
 
   .back-button {
     position: absolute;
-    // top: -90px;
     top: 0;
-    // right: -25px;
     right: 0;
     width: 50px;
     height: 50px;

@@ -17,7 +17,7 @@ def fetch_plant_and_write_to_json():
         # Maak een cursorobject aan met dictionary=True om rijen als woordenboeken op te halen.
         cursor = connection.cursor(dictionary=True)
         # Voer de SQL-query uit om gegevens op te halen.
-        cursor.execute("SELECT id, plant_naam, plantensoort, plant_geteelt FROM planten")
+        cursor.execute("SELECT planten_id, plant_naam, plantensoort, plant_geteelt, kas_locatie FROM planten")
         # Haal alle rijen op.
         plants = cursor.fetchall()
         
