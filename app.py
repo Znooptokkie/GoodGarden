@@ -205,5 +205,25 @@ def get_oogst():
 #     return jsonify(planten_response)
 #####################################
 
+@app.route('/update_plant_geteelt_all', methods=['POST'])
+def update_plant_geteelt_all():
+    try:
+        # Maak verbinding met de database
+        connection = database_connect()
+        if connection and connection.is_connected():
+            cursor = connection.cursor()
+
+            # Query om alle planten bij te werken naar plant_geteelt 0
+            query = "UPDATE planten SET plant_geteelt = 0"
+            cursor.execute(query)
+            connection.commit()  # Transactie bevestigen
+            connection.close()
+            return jsonify({"message": "Alle planten zijn bijgewerkt naar plant_geteelt 0"}), 200
+        else:
+            return jsonify({"error": "Database connection failed"}), 500
+    except Exception as e:
+        print("Error updating all plant_geteelt:", e)
+        return jsonify({"error": "Failed to update all plant_geteelt"}), 500
+    
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000)
