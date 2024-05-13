@@ -1,5 +1,5 @@
 /**
- * Fetches weather data from an API and draws a line chart with the fetched data using Chart.js.
+ * Fetches weather data from an API and draws a bar chart with the fetched data using Chart.js.
  * @param {string}
  * @param {string}
  */
@@ -24,22 +24,26 @@ function fetchWeatherDataAndDrawChart(canvasId, apiUrl) {
                 return;
             }
 
+
             const ctx = canvas.getContext('2d');
             new Chart(ctx, {
-                type: 'line',
+                type: 'bar', // Changed to bar chart type
                 data: {
                     labels: dates,
                     datasets: [{
                         data: temperatures,
-                        backgroundColor: 'rgba(143, 188, 143, 0.2)',
+                        backgroundColor: 'rgba(143, 188, 143, 0.6)', // Changed background color for bars
                         borderColor: 'rgba(143, 188, 143, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
+                    indexAxis: 'x', // Display bars vertically
+                    maintainAspectRatio: false, // Disable aspect ratio
+                    responsive: false, // Disable responsiveness
                     scales: {
                         y: {
-                            beginAtZero: false
+                            beginAtZero: true // Ensure the y-axis starts from zero
                         }
                     },
                     plugins: {
