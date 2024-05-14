@@ -48,10 +48,17 @@ function createWindow() {
             enableRemoteModule: true,
             webSecurity: false,
         },
+        minimizable: false, 
+        resizable: false,   
     });
 
     mainWindow.loadFile(path.join(__dirname, "src/py/templates/index.html"));
+    mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.setZoomFactor(1);
+    });
 }
+
+
 
 
 /**
