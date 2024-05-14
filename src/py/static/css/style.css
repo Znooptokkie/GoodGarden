@@ -88,6 +88,28 @@ body .mainContainer .mainBorder .content .kant-links .plant-grid {
   height: 75%;
   width: 80%;
 }
+body .mainContainer .mainBorder .content .kant-links .plant-grid #leftPlants .plant-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+body .mainContainer .mainBorder .content .kant-links .plant-grid #leftPlants .plant-container .plant-icon {
+  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+}
+body .mainContainer .mainBorder .content .kant-links .plant-grid #rightPlants .plant-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+body .mainContainer .mainBorder .content .kant-links .plant-grid #rightPlants .plant-container .plant-icon {
+  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
 body .mainContainer .mainBorder .content .kant-links .plant-grid table {
   margin-top: 1.5rem;
   width: 100%;
@@ -141,9 +163,10 @@ body .mainContainer .mainBorder .content .kant-links .plant-grid .add-button {
   width: 100%;
 }
 body .mainContainer .mainBorder .content .kant-links .plant-grid .placeholder {
-  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
   border: solid 2px rgb(171, 211, 174);
-  height: 60px;
+  height: 7vh;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   opacity: 50%;
@@ -166,7 +189,7 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-1 .article
 }
 body .mainContainer .mainBorder .content .kant-rechts .rechts-article-1 .article-1-div-1 a {
   border: solid 2px rgb(171, 211, 174);
-  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -189,10 +212,9 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-1 .article
 }
 body .mainContainer .mainBorder .content .kant-rechts .rechts-article-1 .article-1-div-2 .knopje {
   border: solid 2px rgb(171, 211, 174);
-  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
   border-radius: 15px;
   display: flex;
-  background-color: white;
   padding: 0.5rem;
   width: 100%;
   justify-content: center;
@@ -216,7 +238,7 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-1 .article
   display: flex;
 }
 body .mainContainer .mainBorder .content .kant-rechts .rechts-article-2 .grafiek {
-  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
   border-radius: 10px;
   background-color: white;
   height: 100%;
@@ -239,7 +261,7 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-3 {
 }
 body .mainContainer .mainBorder .content .kant-rechts .rechts-article-3 .categorie-planten {
   border: solid 2px rgb(171, 211, 174);
-  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
   border-radius: 15px;
   background-color: white;
   padding: 0.5rem;
@@ -310,13 +332,15 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-3 .categor
 }
 .modal .modal-binnen form h2 {
   font-family: "Afacad", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1rem;
+}
+.modal .modal-binnen form .inputvelden input,
+.modal .modal-binnen form #plantensoort {
+  width: 100%;
 }
 .modal .modal-binnen form select,
 .modal .modal-binnen form input {
-  width: calc(100% - 20px);
-  padding: 10px;
   margin-bottom: 15px;
   border: 2px solid #abd3ae;
   border-radius: 5px;
@@ -362,6 +386,10 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-3 .categor
 .modal .modal-binnen form .radio-single input {
   transform: translateY(50%);
 }
+.modal .modal-binnen form .radio-kant {
+  display: flex;
+  flex-direction: column;
+}
 .modal .modal-binnen form input[type=submit],
 .modal .modal-binnen form button {
   border: none;
@@ -372,6 +400,7 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-3 .categor
 .modal .modal-binnen form input[type=submit] {
   background-color: rgb(171, 211, 174);
   font-size: 1rem;
+  font-family: "Akaya Kanadaka", system-ui;
 }
 .modal .modal-binnen form button {
   color: white;
@@ -546,7 +575,7 @@ input:checked + .slider:before {
   margin: auto;
   width: 100%;
   height: 100%;
-  background-color: rgba(34, 30, 30, 0.8);
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -555,7 +584,7 @@ input:checked + .slider:before {
 
 .loading-spinner {
   border: 10px solid #f3f3f3;
-  border-top: 10px solid #3498db;
+  border-top: 10px solid rgb(171, 211, 174);
   border-radius: 50%;
   width: 80px;
   height: 80px;
@@ -572,4 +601,12 @@ input:checked + .slider:before {
   100% {
     transform: rotate(360deg);
   }
+}
+#planten-button,
+.knopje {
+  box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }/*# sourceMappingURL=style.css.map */

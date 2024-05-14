@@ -8,13 +8,33 @@ const server = express();
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json()); // Zorg ervoor dat je JSON bodies correct kunt verwerken
 
+// server.post("/submit-form", (req, res) => {
+//     const { plant_naam, plantensoort, kas_locatie } = req.body; // Voeg kas_locatie toe aan de destructuring
+//     const plant_geteelt = req.body.plant_geteelt === "true" ? "true" : "false";
+
+//     let options = {
+//         mode: "text",
+//         args: [plant_naam, plantensoort, plant_geteelt, kas_locatie], // Voeg kas_locatie toe aan de argumenten
+//     };
+
+//     PythonShell.run("src/py/script/db_connect_form.py", options, (err, results) => {
+//         if (err) {
+//             console.error(err);
+//             res.send("Er is een fout opgetreden");
+//         } else {
+//             console.log("Python script uitvoering resultaten:", results);
+//             res.send("Formulier succesvol verwerkt");
+//         }
+//     });
+// });
+
 server.post("/submit-form", (req, res) => {
-    const { plant_naam, plantensoort, kas_locatie } = req.body; // Voeg kas_locatie toe aan de destructuring
+    const { plant_naam, plantensoort, kas_locatie } = req.body;
     const plant_geteelt = req.body.plant_geteelt === "true" ? "true" : "false";
 
     let options = {
         mode: "text",
-        args: [plant_naam, plantensoort, plant_geteelt, kas_locatie], // Voeg kas_locatie toe aan de argumenten
+        args: [plant_naam, plantensoort, plant_geteelt, kas_locatie],
     };
 
     PythonShell.run("src/py/script/db_connect_form.py", options, (err, results) => {

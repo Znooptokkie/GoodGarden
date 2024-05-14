@@ -19,5 +19,26 @@
         "plantensoort": "Fruit",
         "plant_geteelt": 1,
         "kas_locatie": "RIGHT"
+    },
+    {
+        "planten_id": 4,
+        "plant_naam": "asdasd",
+        "plantensoort": "Groente",
+        "plant_geteelt": 1,
+        "kas_locatie": "LEFT"
+    },
+    {
+        "planten_id": 5,
+        "plant_naam": "hhh",
+        "plantensoort": "Schimmel",
+        "plant_geteelt": 1,
+        "kas_locatie": "RIGHT"
+    },
+    {
+        "planten_id": 6,
+        "plant_naam": "dsfsdf",
+        "plantensoort": "Fruit",
+        "plant_geteelt": 1,
+        "kas_locatie": "LEFT"
     }
 ]

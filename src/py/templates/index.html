@@ -141,12 +141,14 @@
               </article>
               <article>
                 <label for="plantensoort">Soort van de plant</label>
-                <input
-                  type="text"
-                  name="plantensoort"
-                  id="plantensoort"
-                />
-              </article>
+                <select id="plantensoort" name="plantensoort">
+                    <option value="" disabled selected>Selecteer een soort...</option>
+                    <option value="Groente">Groente</option>
+                    <option value="Kruiden">Kruiden</option>
+                    <option value="Fruit">Fruit</option>
+                    <option value="Schimmel">Schimmel</option>
+                </select>
+            </article>
             </section>
             <h2>Plant aanwezig in kas</h2>
             <section class="radio-group">
@@ -167,16 +169,18 @@
                   value="false"
                 />
                 <label for="afwezig">Nee</label>
-                <input type="radio" id="kas_locatie_left" name="kas_locatie" value="LEFT"> Links
-                <input type="radio" id="kas_locatie_right" name="kas_locatie" value="RIGHT"> Rechts
               </article>
+              <h2>Kaszijde</h2>
+              <article class="radio-kant">
+                <div  class="radio-single">
+                  <input type="radio" id="kas_locatie_left" name="kas_locatie" value="LEFT">
+                  <label for="kas_locatie_left">Links</label>
+                </div>
+                <div  class="radio-single">
+                  <input type="radio" id="kas_locatie_right" name="kas_locatie" value="RIGHT">
+                  <label for="kas_locatie_right">Rechts</label>
+                </div>
             </section>
-            <label for="ontvangenMeldingen">Meldingen ontvangen</label>
-
-            <select name="ontvangen_meldingen">
-              <option value="true">Ja</option>
-              <option value="false">Nee</option>
-            </select>
             <section class="knop-container">
               <button
                 class="annulatie-knop"

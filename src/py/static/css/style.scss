@@ -23,7 +23,12 @@ $font-text: "Afacad", sans-serif;
 
 @mixin box-shadow 
 {
-  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
+  box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+}
+
+@mixin box-shadow-grid
+{
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.5);
 }
 
 @mixin border-radius 
@@ -144,6 +149,42 @@ body
               height: 75%;
               width: 80%;
 
+              #leftPlants
+              {
+                .plant-container
+                {
+                  display: flex;
+                  flex-direction: row-reverse;
+                  align-items: center;
+                  gap: 1rem;
+
+                  .plant-icon
+                  {
+                    @include box-shadow-grid();
+                    height: 100%;
+                    border-radius: 0 8px 8px 0;
+                  }
+                }
+              }
+
+              #rightPlants
+              {
+                .plant-container
+                {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  gap: 1rem;
+
+                  .plant-icon
+                  {
+                    @include box-shadow-grid();
+                    height: 100%;
+                    border-radius: 8px 0 0 8px;
+                  }
+                }
+              }
+
               table
               {
                 margin-top: 1.5rem;
@@ -186,7 +227,7 @@ body
 
               .plant-container
               {
-                @include box-shadow();
+                @include box-shadow-grid();
                 @include groene-border();
                 // width: 240px;
                 width: 100%;
@@ -223,7 +264,9 @@ body
               {
                 @include box-shadow();
                 @include groene-border;
-                height: 60px;
+                // height: 60px;
+                height: 7vh;
+                width: 100%;
                 background-color: rgba(255, 255, 255, 0.5);
                 border-radius: 10px;
                 opacity: 50%;
@@ -287,9 +330,9 @@ body
                     @include box-shadow;
                     border-radius: 15px;
                     display: flex;
-                    background-color: white;
+                    // background-color: white;
                     padding: .5rem;
-                    // width: 150px;
+                  //   // width: 150px;
                     width: 100%;
                     justify-content: center;
                     flex-direction: column;
@@ -467,15 +510,22 @@ body
       h2
       {
         font-family: $font-text;
-        font-weight: 400;
+        font-weight: 600;
         font-size: 1rem;
+      }
+
+      .inputvelden input,
+      #plantensoort
+      {
+                // width: calc(100% - 20px);
+                width: 100%;
       }
 
       select,
       input 
       {
-        width: calc(100% - 20px);
-        padding: 10px;
+        // width: calc(100% - 20px);
+        // padding: 10px;
         margin-bottom: 15px;
         border: 2px solid #abd3ae;
         border-radius: 5px;
@@ -526,6 +576,7 @@ body
       }
 
       .radio-single
+
       {
         display: flex;
         flex-direction: row;
@@ -535,6 +586,12 @@ body
         {
           transform: translateY(50%);
         }
+      }
+
+      .radio-kant
+      {
+        display: flex;
+        flex-direction: column;
       }
 
       input[type="submit"],
@@ -548,6 +605,7 @@ body
       input[type="submit"] {
         background-color: $primary-color;
         font-size: 1rem;
+        font-family: $font-titels;
       }
 
       button {
@@ -722,7 +780,7 @@ input:checked + .slider:before {
   margin: auto;
   width: 100%;
   height: 100%;
-  background-color: rgba(34, 30, 30, 0.8);
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -731,7 +789,7 @@ input:checked + .slider:before {
 
 .loading-spinner {
   border: 10px solid #f3f3f3;
-  border-top: 10px solid #3498db;
+  border-top: 10px solid $primary-color;
   border-radius: 50%;
   width: 80px;
   height: 80px;
@@ -749,4 +807,20 @@ input:checked + .slider:before {
   100% {
     transform: rotate(360deg);
   }
+}
+
+//////////////////////////////////////////
+
+#planten-button,
+.knopje
+{
+  @include box-shadow();
+  background: white;
+  // border: none;
+  border-radius: 20px;
+  // color: #6b6b6b;
+  // font-size: 16px;
+  // padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
