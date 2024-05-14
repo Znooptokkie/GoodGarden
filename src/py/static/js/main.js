@@ -81,3 +81,42 @@ function updatePlantenData(plantenData)
 }
     
 fetchPlantenData();
+
+document.addEventListener('DOMContentLoaded', function() {
+    showLoadingScreen(); // Toon laadscherm wanneer de pagina wordt geladen
+    // fetchBatteryData(); // Haal gegevens op
+    startTimer();
+});
+ 
+function showLoadingScreen() {
+    document.getElementById('loading-screen').style.display = 'block';
+}
+ 
+function hideLoadingScreen() {
+    document.getElementById('loading-screen').style.display = 'none';
+}
+hideLoadingScreen(); // Verberg laadscherm wanneer gegevens zijn geladen
+
+ 
+// function fetchBatteryData() {
+//     // Voer een GET-verzoek uit naar de server om batterijdata op te halen.
+//     axios.get('http://127.0.0.1:5000/')
+//         .then(response => {
+//             // Verwerk de ontvangen data.
+//             const batteryData = response.data;
+//             // Roep de updateBatteryData-functie aan om de batterijdata bij te werken.
+//             updateBatteryData(batteryData);
+//             // Voeg hier andere functieaanroepen toe om de rest van de pagina bij te werken.
+//             hideLoadingScreen(); // Verberg laadscherm wanneer gegevens zijn geladen
+//         })
+//         .catch(error => {
+//             // Log eventuele fouten tijdens het ophalen.
+//             console.error('Error fetching battery data:', error);
+//             hideLoadingScreen(); // Verberg laadscherm bij fout
+//         });
+// }
+ 
+function startTimer() {
+    // Stel de timer in op 3 seconden (3000 milliseconden)
+    setTimeout(hideLoadingScreen, 300); // Verberg laadscherm na 3 seconden
+}
