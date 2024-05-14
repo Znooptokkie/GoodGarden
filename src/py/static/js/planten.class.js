@@ -1,4 +1,4 @@
-class Plant 
+class Plant
 {
     constructor(dataObject) 
     {
@@ -60,54 +60,51 @@ class PlantGrid
         this.updateTable(document.getElementById("rightPlants").querySelector("tbody"), this.rightGrid, "right");
     }
 
-    updateTable(tableBody, grid, side) {
+    updateTable(tableBody, grid, side) 
+    {
         tableBody.innerHTML = "";
         let addButtonPlaced = false;
-    
+        const plantsCount = grid.filter(row => row[0] !== null).length;
+
         grid.forEach((row, rowIndex) => {
             const tr = document.createElement("tr");
-            row.forEach((plant, colIndex) => {
+
+            if (row[0])
+            {
                 const td = document.createElement("td");
-    
-                if (plant) {
-                    const link = document.createElement("a");
-                    link.href = `planteninfo.html?id=${plant.planten_id}`;
-                    const article = document.createElement("article");
-                    article.classList.add("plant-container");
-                    link.appendChild(article);
-                    const img = document.createElement("img");
-                    img.src = "../static/images/icon_awesome-apple-alt.png";
-                    const h2 = document.createElement("h2");
-                    h2.classList.add("plant-naam");
-                    h2.textContent = plant.plantNaam;
-                    article.appendChild(img);
-                    article.appendChild(h2);
-                    td.appendChild(link);
-                } else if (!addButtonPlaced) {
-                    // Eerste null plaats, zet de add button hier
-                    td.appendChild(this.createAddButton(side));
-                    addButtonPlaced = true; // Zorg ervoor dat de knop maar één keer wordt toegevoegd
-                }
-                else 
-                {
-                    // Als de plant null is, toon een placeholder
-                    const placeholder = document.createElement("div");
-                    placeholder.className = "placeholder";
-                    td.appendChild(placeholder);
-                }
+                const plant = row[0];
+                const link = document.createElement("a");
+                link.href = `planteninfo.html?id=${plant.planten_id}`;
+                const article = document.createElement("article");
+                article.classList.add("plant-container");
+                const img = document.createElement("img");
+                img.src = "../static/images/icon_awesome-apple-alt.png";
+                const h2 = document.createElement("h2");
+                h2.textContent = plant.plantNaam;
+
+                article.appendChild(img);
+                article.appendChild(h2);
+                link.appendChild(article);
+                td.appendChild(link);
                 tr.appendChild(td);
-            });
-    
+            }
+            else if (!addButtonPlaced && plantsCount < 8)
+            {
+                const td = this.createAddButton(side);
+                tr.appendChild(td);
+                addButtonPlaced = true;
+            }
+            else
+            {
+                const td = document.createElement("td");
+                const placeholder = document.createElement("div");
+                placeholder.className = "placeholder";
+                td.appendChild(placeholder);
+                tr.appendChild(td);
+            }
+
             tableBody.appendChild(tr);
         });
-    
-        // Als alle posities gevuld zijn en de button nog niet is geplaatst, voeg een extra rij toe voor de button
-        if (!addButtonPlaced) {
-            const tr = document.createElement("tr");
-            const td = this.createAddButton(side);
-            tr.appendChild(td);
-            tableBody.appendChild(tr);
-        }
     }
 
     createAddButton(side) 
