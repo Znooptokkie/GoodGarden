@@ -413,6 +413,41 @@ body .mainContainer .mainBorder .content .kant-rechts .rechts-article-3 .categor
   background-color: rgb(46, 86, 81);
 }
 
+.modal-content {
+  height: 10vh;
+  width: 20vw;
+}
+.modal-content .modal-items {
+  border: 2px solid #abd3ae;
+  border-radius: 1.7vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+.modal-content h2 {
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 1em;
+}
+.modal-content .okButton {
+  font-family: "Akaya Kanadaka", system-ui;
+  width: 48%;
+  padding: 1vh;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20vh;
+  cursor: pointer;
+  color: white;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1rem;
+  background-color: rgb(171, 211, 174);
+  color: black;
+}
+
 .switch-container {
   display: flex;
   align-items: center;
