@@ -30,7 +30,7 @@ function openModal(side)
 
     submit.onclick = function () 
     {
-        alert("Plant toegevoegd");
+        // alert("Plant toegevoegd");
         modal.style.display = "none";
     };
 
