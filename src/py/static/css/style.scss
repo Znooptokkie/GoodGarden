@@ -451,6 +451,8 @@ body
 }
 
 
+
+
  
 .modal 
 {
@@ -743,6 +745,7 @@ input:checked + .slider:before {
   position: relative;
   align-items: end;
 }
+
 .nav-menu 
 {
   position: absolute;
@@ -855,12 +858,46 @@ input:checked + .slider:before {
 {
   @include box-shadow();
   background: white;
-  // border: none;
-  border-radius: 20px;
-  // color: #6b6b6b;
-  // font-size: 16px;
-  // padding: 15px 30px;
+  border-radius: 2vh;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+
+/* Stijl voor de binnenkant van het modale venster */
+.modal-content {
+  border: solid 2px $primary-color;
+  position: relative;
+  padding: 1rem;
+  border-radius: 1.7vh;
+  p{
+    display: flex;
+    justify-content: center;
+    padding: 1vh;
+  }
+}
+
+/* Stijl voor de knoppen binnen het modale venster */
+.modal-content button {
+  width: 48%;
+  padding: 1vh;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20vh;
+  cursor: pointer;
+  color: white;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1rem;
+}
+
+#cancel-close {
+  background-color: rgb(46, 86, 81);
+}
+
+#confirm-close {
+  background-color: $secondary-color;
+  color: black;
+}
+
+
 
