@@ -2,12 +2,10 @@ function fetchPlantenAPI (apiUrl)
 {
     fetch(apiUrl).then(response => response.json()).then(data => 
     {
-
-        console.log(data.data);
-
+ 
         for (const plant of data.data) 
         {
-            console.log(plant);    
+            console.log(plant);
         }
     });
 }

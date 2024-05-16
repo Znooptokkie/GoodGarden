@@ -25,12 +25,20 @@
       <article class="loading-spinner"></article>
     </article>
     <article class="nav-menu">
-      <div class="pagina-container">
-        <div class="close-button" onclick="closeApplication()">&times;</div>
-      </div>
       <div class="container">
         <a href="index.html" class="back-button">&#8592;</a>
       </div>
+      <div class="pagina-container">
+        <div class="close-button" id="close-button">&times;</div>
+      </div>
+
+      <div id="custom-modal" class="modal">
+      <div class="modal-content">
+        <p>Weet je zeker dat je de applicatie wilt sluiten?</p>
+        <button id="cancel-close">Annuleren</button>
+        <button id="confirm-close">Doorgaan</button>
+      </div>
+    </div>
     </article>
     <section class="mainContainer">
       <!-- De container die de inhoud van de informatiepagina bevat -->
