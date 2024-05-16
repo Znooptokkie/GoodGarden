@@ -88,3 +88,42 @@ function openModal(side)
         }
     };
 }
+// ---------------------
+document.addEventListener('DOMContentLoaded', function() {
+    // Definieer de closeApplication() functie
+    function closeApplication() {
+      openModal();
+    }
+  
+    // Definieer de openModal() functie
+    function openModal() {
+      const modal = document.getElementById('custom-modal');
+      modal.style.display = 'block';
+    }
+  
+    // Definieer de closeModal() functie
+    function closeModal() {
+      const modal = document.getElementById('custom-modal');
+      modal.style.display = 'none';
+    }
+  
+    // Voeg event listeners toe aan de bevestigings- en annuleringsknoppen
+    document.getElementById('confirm-close').addEventListener('click', function() {
+      window.close();
+    });
+  
+    document.getElementById('cancel-close').addEventListener('click', function() {
+      closeModal();
+    });
+  
+    // Selecteer de close-button binnen het element met de class "nav-menu"
+    const closeButton = document.querySelector('.nav-menu .close-button');
+  
+    // Voeg een event listener toe aan de close-button
+    closeButton.addEventListener('click', function() {
+      // Roep de closeApplication() functie aan
+      closeApplication();
+    });
+  });
+  
+  //------

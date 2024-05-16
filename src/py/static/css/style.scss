@@ -629,6 +629,7 @@ body
 .modal-content {
   height: 10vh;
   width: 20vw;
+
 .modal-items {
   border: 2px solid #abd3ae;
   border-radius: 1.7vh;
@@ -862,32 +863,41 @@ input:checked + .slider:before {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
-
-/* Stijl voor de binnenkant van het modale venster */
-.modal-content {
-  border: solid 2px $primary-color;
-  position: relative;
+.modal-content-close{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  width: 22.5vw;
   padding: 1rem;
+}
+
+.modal-items-close {
+  border: solid 2px $primary-color;
   border-radius: 1.7vh;
+  // padding: 1rem;
+  height: 100%;
   p{
     display: flex;
     justify-content: center;
-    padding: 1vh;
+    font-family: $font-titels;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 3em;
   }
 }
 
-/* Stijl voor de knoppen binnen het modale venster */
-.modal-content button {
-  width: 48%;
+.modal-content-close button {
+  width: 40%;
   padding: 1vh;
-  box-sizing: border-box;
   border: none;
   border-radius: 20vh;
   cursor: pointer;
   color: white;
   font-family: "Akaya Kanadaka", system-ui;
   font-size: 1rem;
+  margin-left: 1.7em;
+  margin-bottom: 0.6em;
 }
 
 #cancel-close {
@@ -898,6 +908,3 @@ input:checked + .slider:before {
   background-color: $secondary-color;
   color: black;
 }
-
-
-

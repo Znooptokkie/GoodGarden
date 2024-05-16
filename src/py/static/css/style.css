@@ -648,30 +648,40 @@ input:checked + .slider:before {
   transition: all 0.3s ease;
 }
 
-/* Stijl voor de binnenkant van het modale venster */
-.modal-content {
-  border: solid 2px rgb(171, 211, 174);
-  position: relative;
-  padding: 1rem;
-  border-radius: 1.7vh;
-}
-.modal-content p {
-  display: flex;
+.modal-content-close {
+  flex-direction: column;
   justify-content: center;
-  padding: 1vh;
+  align-items: center;
+  height: 15vh;
+  width: 22.5vw;
+  padding: 1rem;
 }
 
-/* Stijl voor de knoppen binnen het modale venster */
-.modal-content button {
-  width: 48%;
+.modal-items-close {
+  border: solid 2px rgb(171, 211, 174);
+  border-radius: 1.7vh;
+  height: 100%;
+}
+.modal-items-close p {
+  display: flex;
+  justify-content: center;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 3em;
+}
+
+.modal-content-close button {
+  width: 40%;
   padding: 1vh;
-  box-sizing: border-box;
   border: none;
   border-radius: 20vh;
   cursor: pointer;
   color: white;
   font-family: "Akaya Kanadaka", system-ui;
   font-size: 1rem;
+  margin-left: 1.7em;
+  margin-bottom: 0.6em;
 }
 
 #cancel-close {
