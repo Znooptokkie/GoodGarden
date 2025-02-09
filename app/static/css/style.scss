@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap");
+
+// $primary-color: rgb(171, 211, 174);
+// $primary-color: #ABD3AE;
+$primary-color: #c1e0c1;
+// $secondary-color: rgb(143, 188, 143);
+// $secundary-color: #BFE5C2;
+$grey-color: #6b6b6b;
+$titel-color: rgb(46, 86, 81);
+// $titel-color: #2E5651
+$font-titels: "Akaya Kanadaka", system-ui;
+$font-text: "Afacad", sans-serif;
+// $input-color: #3d743c;
+
+/*---FLEXBOX---*/
+@mixin align-justify-center 
+{
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexbox-row 
+{
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flexbox-column 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+// /*---BORDER---*/
+@mixin groene-border 
+{
+    border: solid 2px $primary-color;
+}
+
+@mixin border-radius-big 
+{
+    border-radius: 20px;
+}
+
+// /*---SHADOW---*/
+@mixin box-shadow 
+{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+// /*---KEYFRAME---*/
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@mixin button-close()
+{
+    background-color: $titel-color;
+    color: white;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-family: $font-titels;
+    font-size: 1.25rem;
+    // font-weight: bold;
+
+    &:hover
+    {
+        background-color: lighten($titel-color, 5%);
+        color: white;
+    }
+}
+
+@mixin button-confirm()
+{
+    background-color: $primary-color;
+    color: $titel-color;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-family: $font-titels;
+    font-size: 1.25rem;
+    // font-weight: bold;
+
+    &:hover
+    {
+        background-color: lighten($primary-color, 5%);
+    }
+}
+
+@mixin text-font()
+{
+    font-size: 1.25rem;
+    color: $grey-color;
+    font-family: $font-text;
+}
+
+*, 
+:root
+{
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 
+{
+    font-family: $font-titels;
+    margin: 0;
+    font-size: 2rem;
+    color: $titel-color;
+}
+
+p,
+td 
+{
+    @include text-font();
+}
+
+a 
+{
+    text-decoration: none;
+}
+
+html, 
+body 
+{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/achtergrond.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: "Afacad", sans-serif;
+    position: relative;
+
+    .nav-menu 
+    {
+        position: absolute;
+        left: 0;
+    
+        ul 
+        {
+            @include flexbox-column();
+            margin: 0;
+            padding: 0;
+            padding: .5rem;
+            gap: 1rem;
+    
+            a 
+            {
+                @include groene-border();
+                @include flexbox-row();
+                background-color: white;
+                padding: .75rem;
+                border-radius: 50%;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+                box-sizing: border-box; 
+    
+                img 
+                {
+                    width: 1.75vw;
+                }
+            }
+    
+            #settings-button 
+            {
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    .main-container 
+    {
+        @include box-shadow();
+        width: 90vw;
+        height: 87.5vh; 
+        background-color: rgba(255, 255, 255, 0.825);
+        border-radius: 15px; 
+        padding: 1rem;
+
+        .inner-main
+        {
+            @include flexbox-column();
+            @include align-justify-center();
+            border: 5px solid $primary-color;
+            border-radius: 12px;
+            // width: 100%;
+            height: 100%;
+            // margin: 1rem;
+            box-sizing: border-box; 
+        }
+    }
+}
+
+
+.modal 
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    // padding: rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+    // height: 20rem;
+    // width: 10rem;
+    display: block;
+
+    .inner-modal
+    {
+        margin: .5rem;
+        padding: 1rem;
+        border: solid 3px $primary-color;
+        border-radius: 7px;
+
+        .modal-head
+        {
+            text-align: center;
+        }
+    
+        .modal-body
+        {
+            form
+            {
+                .form-group
+                {
+                    @include flexbox-column();
+    
+                    label
+                    {
+                        @include text-font();
+                    }
+
+                    input {
+                        margin-bottom: 15px;
+                        border: 2px solid $primary-color;
+                        border-radius: 25px;
+                        box-sizing: border-box;
+                        padding: .5rem 1rem;
+                        font-size: 1rem;
+                    }
+                }
+
+                .button-container
+                {
+                    @include flexbox-column();
+                    margin-top: .75rem;
+
+                    .submit-button
+                    {
+                        @include button-confirm();
+                    }
+                }
+            }
+
+            .success-modal
+            {
+                @include text-font();
+                text-align: center;
+            }
+
+            #logout-confirmation
+            {
+                .button-container
+                {
+                    form
+                    {
+                        @include flexbox-column();
+
+                        .submit-button
+                        {
+                            @include button-confirm();
+                        }
+                    }
+                }
+            }
+        }
+    
+        .modal-footer
+        {
+            @include flexbox-column();
+
+            .modal-close-button
+            {
+                @include button-close();
+            }
+        }
+    }
+}
+
+.modal-overlay 
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}

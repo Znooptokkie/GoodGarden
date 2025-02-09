@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GoodGarden - Slimme Kas Monitoring">
+    <meta name="author" content="GoodGarden Team">
+    
+    <title>{% block title %}{% endblock %} - GoodGarden</title>
+    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='js/modal.js') }}" defer></script>
+
+</head>
+<body>
+
+    <!-- <div id="loading-screen">
+        <div class="loading-spinner"></div>
+    </div> -->
+
+    <nav class="nav-menu">
+        <ul>
+            {% if current_user.is_authenticated %}
+                {% if current_user.role == "admin" %}
+                    <a href="{{ url_for('main.index') }}" id="settings-button">
+                        <img src="{{ url_for('static', filename='images/nav/user.png') }}" alt="Instellingen">
+                    </a>
+                {% endif %}
+                <a href="#" id="logout-button">
+                    <img src="{{ url_for('static', filename='images/nav/logout.png') }}" alt="Uitloggen">
+                </a>
+            {% else %}
+                <a href="#" id="register-button">
+                    <img src="{{ url_for('static', filename='images/nav/register.png') }}" alt="Registreren">
+                </a>
+                <a href="#" id="login-button">
+                    <img src="{{ url_for('static', filename='images/nav/login.png') }}" alt="Inloggen">
+                </a>
+            {% endif %}
+        </ul>
+    </nav>    
+
+    <main class="main-container">
+        <section class="inner-main">
+            {% block content %}
+        
+            {% endblock %}
+        </section>
+    </main>
+
+    <!-- Modal om een bericht te tonen als bepaalde actie met success voltooid is. Werkt met categorieen die meegegeven worden vanuit de Class. Wordt getriggerd door de flash() function. -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% set modal_messages = messages | selectattr("0", "in", ["register_succes", "modal_succes", "modal_faal"]) | list %}
+        {% if modal_messages %}
+            <section id="flash-modal" class="modal-overlay">
+                <article class="modal">
+                    <div class="inner-modal">
+                        {% for category, message in modal_messages %}
+                            <div class="modal-head">
+                                {% if category == "register_succes" %}
+                                    <h5>Registratie Succesvol!</h5>
+                                {% elif category == "modal_succes" %}
+                                    <h5>Great Succes!</h5>
+                                {% elif category == "modal_faal" %}
+                                <h5>Helaas, niet gelukt!</h5>
+                                {% endif %}
+                            </div>
+                            <div class="modal-body">
+                                <div class="message success-modal">{{ message|safe }}</div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="modal-close-button" onclick="closeModal()">Sluiten</button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </article>
+            </section>
+        {% endif %}
+    {% endwith %}
+
+    <div id="auth-modal" class="modal-overlay">
+        <article class="modal">
+            <div class="inner-modal">
+                <div class="modal-head">
+                    <h5 id="auth-modal-title"></h5>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Login Form -->
+                    <form id="login-form" method="POST" action="{{ url_for('auth.login') }}" class="auth-form">
+                        {{ login_form.hidden_tag() }}
+                        <div class="form-group">
+                            <label for="username-login">Gebruikersnaam</label>
+                            {{ login_form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="password-login">Wachtwoord</label>
+                            {{ login_form.password }}
+                        </div>
+                        {% include "partials/flash_danger.html" %}
+                        <div class="button-container">
+                            <button type="submit" class="submit-button">Inloggen</button>
+                        </div>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="register-form" method="POST" action="{{ url_for('auth.register') }}" class="auth-form">
+                        {{ register_form.hidden_tag() }}
+                        <div class="form-group">
+                            <label for="username-register">Gebruikersnaam</label>
+                            {{ register_form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="email-register">E-mailadres</label>
+                            {{ register_form.email }}
+                        </div>
+                        <div class="form-group">
+                            <label for="password-register">Wachtwoord</label>
+                            {{ register_form.password }}
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password-register">Bevestig Wachtwoord</label>
+                            {{ register_form.confirm_password }}
+                        </div>
+                        {% include "partials/flash_danger.html" %}
+                        <div class="button-container">
+                            <button type="submit" class="submit-button">Registreren</button>
+                        </div>
+                    </form>
+
+                    <!-- Logout Confirmation -->
+                    <div id="logout-confirmation" class="auth-form">
+                        <p>Weet je zeker dat je wilt uitloggen?</p>
+                        <div class="button-container">
+                            <form method="POST" action="{{ url_for('auth.logout') }}">
+                                <button type="submit" class="submit-button">Uitloggen</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-close-button" id="close-auth-modal">Sluiten</button>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

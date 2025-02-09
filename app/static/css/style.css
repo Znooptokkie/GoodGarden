@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap");
+/*---FLEXBOX---*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+*,
+:root {
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Akaya Kanadaka", system-ui;
+  margin: 0;
+  font-size: 2rem;
+  color: rgb(46, 86, 81);
+}
+
+p,
+td {
+  font-size: 1.25rem;
+  color: #6b6b6b;
+  font-family: "Afacad", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/achtergrond.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: "Afacad", sans-serif;
+  position: relative;
+}
+html .nav-menu,
+body .nav-menu {
+  position: absolute;
+  left: 0;
+}
+html .nav-menu ul,
+body .nav-menu ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+html .nav-menu ul a,
+body .nav-menu ul a {
+  border: solid 2px #c1e0c1;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+html .nav-menu ul a img,
+body .nav-menu ul a img {
+  width: 1.75vw;
+}
+html .nav-menu ul #settings-button,
+body .nav-menu ul #settings-button {
+  background-color: #c1e0c1;
+}
+html .main-container,
+body .main-container {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90vw;
+  height: 87.5vh;
+  background-color: rgba(255, 255, 255, 0.825);
+  border-radius: 15px;
+  padding: 1rem;
+}
+html .main-container .inner-main,
+body .main-container .inner-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #c1e0c1;
+  border-radius: 12px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000;
+  display: block;
+}
+.modal .inner-modal {
+  margin: 0.5rem;
+  padding: 1rem;
+  border: solid 3px #c1e0c1;
+  border-radius: 7px;
+}
+.modal .inner-modal .modal-head {
+  text-align: center;
+}
+.modal .inner-modal .modal-body form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.modal .inner-modal .modal-body form .form-group label {
+  font-size: 1.25rem;
+  color: #6b6b6b;
+  font-family: "Afacad", sans-serif;
+}
+.modal .inner-modal .modal-body form .form-group input {
+  margin-bottom: 15px;
+  border: 2px solid #c1e0c1;
+  border-radius: 25px;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+.modal .inner-modal .modal-body form .button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.75rem;
+}
+.modal .inner-modal .modal-body form .button-container .submit-button {
+  background-color: #c1e0c1;
+  color: rgb(46, 86, 81);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1.25rem;
+}
+.modal .inner-modal .modal-body form .button-container .submit-button:hover {
+  background-color: #d2e9d2;
+}
+.modal .inner-modal .modal-body .success-modal {
+  font-size: 1.25rem;
+  color: #6b6b6b;
+  font-family: "Afacad", sans-serif;
+  text-align: center;
+}
+.modal .inner-modal .modal-body #logout-confirmation .button-container form {
+  display: flex;
+  flex-direction: column;
+}
+.modal .inner-modal .modal-body #logout-confirmation .button-container form .submit-button {
+  background-color: #c1e0c1;
+  color: rgb(46, 86, 81);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1.25rem;
+}
+.modal .inner-modal .modal-body #logout-confirmation .button-container form .submit-button:hover {
+  background-color: #d2e9d2;
+}
+.modal .inner-modal .modal-footer {
+  display: flex;
+  flex-direction: column;
+}
+.modal .inner-modal .modal-footer .modal-close-button {
+  background-color: rgb(46, 86, 81);
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1.25rem;
+}
+.modal .inner-modal .modal-footer .modal-close-button:hover {
+  background-color: #376761;
+  color: white;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,8 @@
+
+**/*.env
+__pychache__
+venv/
+*.pyc
+*.css.map
+
+notes.txt

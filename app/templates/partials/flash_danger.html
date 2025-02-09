@@ -1,0 +1,12 @@
+<!-- Flash bericht voor afhandeling van de error met categorie "danger" -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+      {% if category == "danger" %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endif %}
+      {% endfor %}
+    </div>
+{% endif %}
+{% endwith %}
