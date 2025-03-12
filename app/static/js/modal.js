@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalWindow = document.querySelector(".modal");
     const modalFlash = document.getElementById("flash-modal");
 
+    const plantForm = document.getElementById("plant-toevoegen-form");
+
     // === Selectors voor de flash-modal ===
     const flashModal = document.getElementById("flash-modal");
     const flashCloseButton = document.querySelector("#flash-modal .modal-close-button");
@@ -30,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.style.display = "none";
         registerForm.style.display = "none";
         logoutConfirmation.style.display = "none";
+
+        plantForm.style.display = "none";
     
         let targetInput = null;
     
@@ -44,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (formType === "logout") {
             logoutConfirmation.style.display = "block";
             modalTitle.innerText = "Uitloggen";
+        } else if (formType === "plant-toevoegen") {
+            plantForm.style.display = "block";
+            modalTitle.innerText = "Plant Toevoegen";
+            targetInput = plantForm.querySelector("first-input");
         }
     
         // Zorg ervoor dat het juiste inputveld wordt gefocust
@@ -86,6 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("logout-button")?.addEventListener("click", function () {
         openModal("logout");
     });
+
+    document.querySelector(".plant-toevoegen")?.addEventListener("click", () => {
+        openModal("plant-toevoegen")
+    })
 
     document.getElementById("cancel-logout")?.addEventListener("click", closeAuthModal);
 

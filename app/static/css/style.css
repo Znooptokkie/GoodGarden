@@ -97,14 +97,95 @@ body .main-container {
 }
 html .main-container .inner-main,
 body .main-container .inner-main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
   border: 5px solid #c1e0c1;
   border-radius: 12px;
   height: 100%;
   box-sizing: border-box;
+}
+html .main-container .inner-main .main-first,
+body .main-container .inner-main .main-first {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  padding: 3rem;
+}
+html .main-container .inner-main .main-first .plant-grid,
+body .main-container .inner-main .main-first .plant-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 2rem;
+  border-top: solid 2px #c1e0c1;
+}
+html .main-container .inner-main .main-first .plant-grid .plant-column,
+body .main-container .inner-main .main-first .plant-grid .plant-column {
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  margin: 2rem;
+  height: 95%;
+  width: 100%;
+}
+html .main-container .inner-main .main-first .plant-grid .plant-column .grid-item,
+body .main-container .inner-main .main-first .plant-grid .plant-column .grid-item {
+  border: solid 2px #c1e0c1;
+  border-radius: 20px;
+  height: 100%;
+  background-color: white;
+  box-sizing: border-box;
+}
+html .main-container .inner-main .main-first .plant-grid .plant-column .grid-item a,
+body .main-container .inner-main .main-first .plant-grid .plant-column .grid-item a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+html .main-container .inner-main .main-first .plant-grid .plant-column .grid-item a img,
+body .main-container .inner-main .main-first .plant-grid .plant-column .grid-item a img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 1rem;
+  border-radius: 18px 0 0 18px;
+}
+html .main-container .inner-main .main-first .plant-grid .plant-column .grid-item a span,
+body .main-container .inner-main .main-first .plant-grid .plant-column .grid-item a span {
+  color: rgb(46, 86, 81);
+  font-size: 1.5rem;
+  font-family: "Afacad", sans-serif;
+  text-align: center;
+  flex-grow: 1;
+}
+html .main-container .inner-main .main-first .plant-grid .plant-column .placeholder-cell,
+body .main-container .inner-main .main-first .plant-grid .plant-column .placeholder-cell {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: dashed 3px rgba(107, 107, 107, 0.25);
+  height: 100%;
+  border-radius: 20px;
+}
+html .main-container .inner-main .main-first .plant-grid .plant-column .placeholder-cell img,
+body .main-container .inner-main .main-first .plant-grid .plant-column .placeholder-cell img {
+  width: 3rem;
+}
+html .main-container .inner-main .main-first .plant-grid .vertical-line,
+body .main-container .inner-main .main-first .plant-grid .vertical-line {
+  width: 5px;
+  height: 95%;
+  background-color: #c1e0c1;
+}
+html .main-container .inner-main .main-second,
+body .main-container .inner-main .main-second {
+  border-left: solid 1px red;
 }
 
 .modal {
@@ -217,4 +298,59 @@ body .main-container .inner-main {
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
   z-index: 999;
+}
+
+/*--- RESPONSIVE DESIGN ---*/
+@media (max-width: 1024px) {
+  .plant-table .grid-item td, .plant-table .grid-item th {
+    font-size: 1.2rem;
+  }
+  .plant-table .grid-item td img, .plant-table .grid-item th img {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .plant-table .grid-item td span, .plant-table .grid-item th span {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 768px) {
+  .plant-grid .plant-table {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .plant-grid .plant-table .plant-table .grid-item td, .plant-grid .plant-table .plant-table .grid-item th {
+    font-size: 1rem;
+  }
+  .plant-grid .plant-table .plant-table .grid-item td img, .plant-grid .plant-table .plant-table .grid-item th img {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .plant-grid .plant-table .plant-table .grid-item td span, .plant-grid .plant-table .plant-table .grid-item th span {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .plant-grid {
+    padding: 1rem;
+  }
+  .plant-grid .plant-table .grid-item td, .plant-grid .plant-table .grid-item th {
+    font-size: 0.75rem;
+  }
+  .plant-grid .plant-table .grid-item td img, .plant-grid .plant-table .grid-item th img {
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  .plant-grid .plant-table .grid-item td span, .plant-grid .plant-table .grid-item th span {
+    font-size: 0.875rem;
+  }
+  .main-container {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;
+  }
+  .nav-menu ul a img {
+    width: 2vw;
+  }
 }/*# sourceMappingURL=style.css.map */

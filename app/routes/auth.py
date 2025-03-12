@@ -33,9 +33,6 @@ def login():
 @auth_bp.route("/register", methods=["POST"])
 def register():
 
-    print("DEBUG: /register aangeroepen, request.method =", request.method)
-    print("DEBUG: request.form =", request.form)
-
     register_form = RegisterForm()
 
     if register_form.validate_on_submit():
@@ -51,7 +48,6 @@ def register():
         }
 
         success, message, category = User.registreren(form_data)
-        print("DEBUG: user.registreren =>", success, message, category)
 
         if success:
             flash(message, category)

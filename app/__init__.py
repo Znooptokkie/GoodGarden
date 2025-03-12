@@ -6,6 +6,8 @@ from app.models.plant import Plant
 from app.models.generic_data import GenericPlantData
 from app.models.specific_data import SpecificPlantData
 from app.models.oogst import Oogst
+from app.forms.auth_forms import *
+from app.forms.plant_forms import *
 
 def create_app():
     app = Flask(__name__)
@@ -19,5 +21,14 @@ def create_app():
     from app.routes.main import main_bp
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
+
+    @app.context_processor
+    def inject_forms():
+        return {
+            "login_form": LoginForm(),
+            "register_form": RegisterForm(),
+            "plant_toevoegen_form": PlantToevoegen(),
+        }
+
 
     return app

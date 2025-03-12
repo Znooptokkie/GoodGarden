@@ -4,7 +4,62 @@
 
 {% block content %}
 
-{{ current_user.username }}
-{{ current_user.role }}
+<article class="main-first">
+    <h1>Aanwezige planten in de kas</h1>
+    <div class="plant-grid">
+<!-- Linkerkant -->
+<div class="plant-column left-column">
+    {% for plant in planten[0] %}
+        <div class="grid-item {% if plant.plant_soort == 'placeholder' %}placeholder-cell{% endif %}">
+            {% if plant.id == -2 %}
+                <a href="#" class="plant-toevoegen">
+                    <img src="{{ plant.afbeelding }}" alt="Nieuwe plant toevoegen">
+                    <!-- <span>➕ Nieuwe plant toevoegen</span> -->
+                </a>
+            {% else %}
+                <a href="{{ url_for('main.plant', plant_id=plant.id) }}">
+                    {% if plant.afbeelding %}
+                        <img src="{{ plant.afbeelding }}" alt="Afbeelding van plantensoort">
+                    {% endif %}
+                    {% if plant.plant_naam %}
+                        <span>{{ plant.plant_naam }}</span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Rechterkant -->
+<div class="plant-column right-column">
+    {% for plant in planten[1] %}
+        <div class="grid-item {% if plant.plant_soort == 'placeholder' %}placeholder-cell{% endif %}">
+            {% if plant.id == -2 %}
+                <a href="#" class="plant-toevoegen">
+                    <img src="{{ plant.afbeelding }}" alt="Nieuwe plant toevoegen">
+                    <!-- <span>➕ Nieuwe plant toevoegen</span> -->
+                </a>
+            {% else %}
+                <a href="{{ url_for('main.plant', plant_id=plant.id) }}">
+                    {% if plant.afbeelding %}
+                        <img src="{{ plant.afbeelding }}" alt="Afbeelding van plantensoort">
+                    {% endif %}
+                    {% if plant.plant_naam %}
+                        <span>{{ plant.plant_naam }}</span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+    </div>
+    
+</article>
+
+<article class="main-second">
+    {{ current_user.username }}
+    {{ current_user.role }}
+</article>
 
 {% endblock %}
