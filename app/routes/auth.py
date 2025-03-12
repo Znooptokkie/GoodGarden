@@ -37,7 +37,7 @@ def register():
 
     if register_form.validate_on_submit():
 
-        print("REGISTER@#@!#@#")
+        # print("REGISTER@#@!#@#")
 
         register_form.sanitize_data()
 

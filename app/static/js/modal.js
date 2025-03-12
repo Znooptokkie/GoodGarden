@@ -40,11 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (formType === "login") {
             loginForm.style.display = "block";
             modalTitle.innerText = "Inloggen";
-            targetInput = loginForm.querySelector(".first-input");  // Pak de eerste input van login
+            targetInput = loginForm.querySelector(".first-input");  
         } else if (formType === "register") {
             registerForm.style.display = "block";
             modalTitle.innerText = "Registreren";
-            targetInput = registerForm.querySelector(".first-input"); // Pak de eerste input van register
+            targetInput = registerForm.querySelector(".first-input"); 
         } else if (formType === "logout") {
             logoutConfirmation.style.display = "block";
             modalTitle.innerText = "Uitloggen";
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // (zorg dat je de knop in je flash-modal markup hebt met .modal-close-button)
     flashCloseButton?.addEventListener("click", closeFlashModal);
 
-    // Sluit auth-modal als je buiten klikt
+    // Sluit modal als je buiten klikt
     window.addEventListener("click", function (event) {
         if (event.target === modalAuth) {
             closeAuthModal();
